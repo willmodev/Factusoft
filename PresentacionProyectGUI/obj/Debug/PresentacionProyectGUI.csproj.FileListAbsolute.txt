@@ -1,0 +1,16 @@
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\PulsacionesGUI.exe.config
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\PulsacionesGUI.exe
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\PulsacionesGUI.pdb
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\BLL.dll
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\Entity.dll
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\FontAwesome.Sharp.dll
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\BLL.pdb
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\Entity.pdb
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PresentacionProyectGUI.csprojAssemblyReference.cache
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.PrincipalFrm.resources
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.Properties.Resources.resources
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.RegistrarPersonaFrm.resources
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PresentacionProyectGUI.csproj.GenerateResource.cache
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PresentacionProyectGUI.csproj.CopyComplete
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.exe
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.pdb

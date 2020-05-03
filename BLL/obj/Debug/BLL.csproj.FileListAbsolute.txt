@@ -1,0 +1,5 @@
+D:\University\Programacion III\PresentacionGUI\BLL\bin\Debug\BLL.dll
+D:\University\Programacion III\PresentacionGUI\BLL\bin\Debug\BLL.pdb
+D:\University\Programacion III\PresentacionGUI\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\University\Programacion III\PresentacionGUI\BLL\obj\Debug\BLL.dll
+D:\University\Programacion III\PresentacionGUI\BLL\obj\Debug\BLL.pdb
