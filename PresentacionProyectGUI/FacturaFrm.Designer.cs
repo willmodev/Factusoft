@@ -44,14 +44,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.detalleFacturaDgv = new System.Windows.Forms.DataGridView();
+            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.panelDivisorPnl = new System.Windows.Forms.Panel();
             this.FacturaDgv = new System.Windows.Forms.DataGridView();
@@ -227,14 +227,14 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(48, 202);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(184, 24);
+            this.label4.Size = new System.Drawing.Size(185, 24);
             this.label4.TabIndex = 95;
-            this.label4.Text = "Agragar Productos";
+            this.label4.Text = "Agregar Productos";
             // 
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(113, 250);
+            this.textBox2.Location = new System.Drawing.Point(133, 250);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(174, 20);
             this.textBox2.TabIndex = 70;
@@ -248,9 +248,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
             this.label6.Location = new System.Drawing.Point(49, 253);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 70;
-            this.label6.Text = "Nombre:";
+            this.label6.Text = "Nombre / ID: ";
             // 
             // iconButton1
             // 
@@ -267,7 +267,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.Lime;
             this.iconButton1.IconSize = 30;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(313, 242);
+            this.iconButton1.Location = new System.Drawing.Point(326, 242);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Rotation = 0D;
             this.iconButton1.Size = new System.Drawing.Size(89, 34);
@@ -289,8 +289,26 @@
             this.detalleFacturaDgv.Location = new System.Drawing.Point(52, 296);
             this.detalleFacturaDgv.Name = "detalleFacturaDgv";
             this.detalleFacturaDgv.ReadOnly = true;
-            this.detalleFacturaDgv.Size = new System.Drawing.Size(349, 125);
+            this.detalleFacturaDgv.Size = new System.Drawing.Size(363, 125);
             this.detalleFacturaDgv.TabIndex = 98;
+            // 
+            // IDProducto
+            // 
+            this.IDProducto.HeaderText = "ID";
+            this.IDProducto.Name = "IDProducto";
+            this.IDProducto.ReadOnly = true;
+            // 
+            // NombreProducto
+            // 
+            this.NombreProducto.HeaderText = "Producto";
+            this.NombreProducto.Name = "NombreProducto";
+            this.NombreProducto.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Precio por kg";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // textBox3
             // 
@@ -357,24 +375,6 @@
             this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 103;
             this.label9.Text = "0000";
-            // 
-            // IDProducto
-            // 
-            this.IDProducto.HeaderText = "ID";
-            this.IDProducto.Name = "IDProducto";
-            this.IDProducto.ReadOnly = true;
-            // 
-            // NombreProducto
-            // 
-            this.NombreProducto.HeaderText = "Producto";
-            this.NombreProducto.Name = "NombreProducto";
-            this.NombreProducto.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Precio por kg";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // iconButton4
             // 
@@ -444,7 +444,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Precio por kg";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 77;
+            this.dataGridViewTextBoxColumn3.Width = 95;
             // 
             // Column2
             // 
