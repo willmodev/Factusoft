@@ -37,15 +37,17 @@
             this.CerrarBtn = new System.Windows.Forms.PictureBox();
             this.MenuVerticalPnl = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.inicioBtn = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ModificarBtn = new FontAwesome.Sharp.IconButton();
-            this.ConsultarBtn = new FontAwesome.Sharp.IconButton();
-            this.RegistrarBtn = new FontAwesome.Sharp.IconButton();
+            this.facturarBtn = new FontAwesome.Sharp.IconButton();
+            this.clientesBtn = new FontAwesome.Sharp.IconButton();
+            this.productosBtn = new FontAwesome.Sharp.IconButton();
             this.PanelContenedorPnl = new System.Windows.Forms.Panel();
             this.HoraFechaTimer = new System.Windows.Forms.Timer(this.components);
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.gestionFacturaBtn = new FontAwesome.Sharp.IconButton();
             this.BarraTituloPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaximizarBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RestaurarBtn)).BeginInit();
@@ -121,14 +123,16 @@
             // MenuVerticalPnl
             // 
             this.MenuVerticalPnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(3)))), ((int)(((byte)(6)))));
+            this.MenuVerticalPnl.Controls.Add(this.panel5);
+            this.MenuVerticalPnl.Controls.Add(this.gestionFacturaBtn);
             this.MenuVerticalPnl.Controls.Add(this.panel4);
-            this.MenuVerticalPnl.Controls.Add(this.iconButton1);
+            this.MenuVerticalPnl.Controls.Add(this.inicioBtn);
             this.MenuVerticalPnl.Controls.Add(this.panel3);
             this.MenuVerticalPnl.Controls.Add(this.panel2);
             this.MenuVerticalPnl.Controls.Add(this.panel1);
-            this.MenuVerticalPnl.Controls.Add(this.ModificarBtn);
-            this.MenuVerticalPnl.Controls.Add(this.ConsultarBtn);
-            this.MenuVerticalPnl.Controls.Add(this.RegistrarBtn);
+            this.MenuVerticalPnl.Controls.Add(this.facturarBtn);
+            this.MenuVerticalPnl.Controls.Add(this.clientesBtn);
+            this.MenuVerticalPnl.Controls.Add(this.productosBtn);
             this.MenuVerticalPnl.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVerticalPnl.Location = new System.Drawing.Point(0, 38);
             this.MenuVerticalPnl.Name = "MenuVerticalPnl";
@@ -143,30 +147,30 @@
             this.panel4.Size = new System.Drawing.Size(10, 60);
             this.panel4.TabIndex = 3;
             // 
-            // iconButton1
+            // inicioBtn
             // 
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Artstation;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 30);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(220, 60);
-            this.iconButton1.TabIndex = 4;
-            this.iconButton1.Text = "Inicio";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            this.inicioBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.inicioBtn.FlatAppearance.BorderSize = 0;
+            this.inicioBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.inicioBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inicioBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.inicioBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inicioBtn.ForeColor = System.Drawing.Color.White;
+            this.inicioBtn.IconChar = FontAwesome.Sharp.IconChar.Artstation;
+            this.inicioBtn.IconColor = System.Drawing.Color.White;
+            this.inicioBtn.IconSize = 32;
+            this.inicioBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.inicioBtn.Location = new System.Drawing.Point(0, 30);
+            this.inicioBtn.Name = "inicioBtn";
+            this.inicioBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.inicioBtn.Rotation = 0D;
+            this.inicioBtn.Size = new System.Drawing.Size(220, 60);
+            this.inicioBtn.TabIndex = 4;
+            this.inicioBtn.Text = "Inicio";
+            this.inicioBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.inicioBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.inicioBtn.UseVisualStyleBackColor = true;
+            this.inicioBtn.Click += new System.EventHandler(this.InicioBtn_Click);
             // 
             // panel3
             // 
@@ -192,78 +196,78 @@
             this.panel1.Size = new System.Drawing.Size(10, 60);
             this.panel1.TabIndex = 0;
             // 
-            // ModificarBtn
+            // facturarBtn
             // 
-            this.ModificarBtn.FlatAppearance.BorderSize = 0;
-            this.ModificarBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.ModificarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ModificarBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.ModificarBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModificarBtn.ForeColor = System.Drawing.Color.White;
-            this.ModificarBtn.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
-            this.ModificarBtn.IconColor = System.Drawing.Color.White;
-            this.ModificarBtn.IconSize = 32;
-            this.ModificarBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ModificarBtn.Location = new System.Drawing.Point(0, 273);
-            this.ModificarBtn.Name = "ModificarBtn";
-            this.ModificarBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ModificarBtn.Rotation = 0D;
-            this.ModificarBtn.Size = new System.Drawing.Size(220, 60);
-            this.ModificarBtn.TabIndex = 2;
-            this.ModificarBtn.Text = "Facturar";
-            this.ModificarBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ModificarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ModificarBtn.UseVisualStyleBackColor = true;
-            this.ModificarBtn.Click += new System.EventHandler(this.ModificarBtn_Click);
+            this.facturarBtn.FlatAppearance.BorderSize = 0;
+            this.facturarBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.facturarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.facturarBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.facturarBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.facturarBtn.ForeColor = System.Drawing.Color.White;
+            this.facturarBtn.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
+            this.facturarBtn.IconColor = System.Drawing.Color.White;
+            this.facturarBtn.IconSize = 32;
+            this.facturarBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.facturarBtn.Location = new System.Drawing.Point(0, 273);
+            this.facturarBtn.Name = "facturarBtn";
+            this.facturarBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.facturarBtn.Rotation = 0D;
+            this.facturarBtn.Size = new System.Drawing.Size(220, 60);
+            this.facturarBtn.TabIndex = 2;
+            this.facturarBtn.Text = "Facturar";
+            this.facturarBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.facturarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.facturarBtn.UseVisualStyleBackColor = true;
+            this.facturarBtn.Click += new System.EventHandler(this.FacturarBtn_Click);
             // 
-            // ConsultarBtn
+            // clientesBtn
             // 
-            this.ConsultarBtn.FlatAppearance.BorderSize = 0;
-            this.ConsultarBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.ConsultarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsultarBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.ConsultarBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConsultarBtn.ForeColor = System.Drawing.Color.White;
-            this.ConsultarBtn.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            this.ConsultarBtn.IconColor = System.Drawing.Color.White;
-            this.ConsultarBtn.IconSize = 32;
-            this.ConsultarBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ConsultarBtn.Location = new System.Drawing.Point(0, 193);
-            this.ConsultarBtn.Name = "ConsultarBtn";
-            this.ConsultarBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ConsultarBtn.Rotation = 0D;
-            this.ConsultarBtn.Size = new System.Drawing.Size(220, 60);
-            this.ConsultarBtn.TabIndex = 1;
-            this.ConsultarBtn.Text = "Clientes";
-            this.ConsultarBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ConsultarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ConsultarBtn.UseVisualStyleBackColor = true;
-            this.ConsultarBtn.Click += new System.EventHandler(this.ConsultarBtn_Click);
+            this.clientesBtn.FlatAppearance.BorderSize = 0;
+            this.clientesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.clientesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clientesBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.clientesBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clientesBtn.ForeColor = System.Drawing.Color.White;
+            this.clientesBtn.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.clientesBtn.IconColor = System.Drawing.Color.White;
+            this.clientesBtn.IconSize = 32;
+            this.clientesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clientesBtn.Location = new System.Drawing.Point(0, 193);
+            this.clientesBtn.Name = "clientesBtn";
+            this.clientesBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.clientesBtn.Rotation = 0D;
+            this.clientesBtn.Size = new System.Drawing.Size(220, 60);
+            this.clientesBtn.TabIndex = 1;
+            this.clientesBtn.Text = "Clientes";
+            this.clientesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clientesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.clientesBtn.UseVisualStyleBackColor = true;
+            this.clientesBtn.Click += new System.EventHandler(this.ClientesBtn_Click);
             // 
-            // RegistrarBtn
+            // productosBtn
             // 
-            this.RegistrarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RegistrarBtn.FlatAppearance.BorderSize = 0;
-            this.RegistrarBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.RegistrarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegistrarBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.RegistrarBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistrarBtn.ForeColor = System.Drawing.Color.White;
-            this.RegistrarBtn.IconChar = FontAwesome.Sharp.IconChar.Tv;
-            this.RegistrarBtn.IconColor = System.Drawing.Color.White;
-            this.RegistrarBtn.IconSize = 32;
-            this.RegistrarBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RegistrarBtn.Location = new System.Drawing.Point(0, 113);
-            this.RegistrarBtn.Name = "RegistrarBtn";
-            this.RegistrarBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.RegistrarBtn.Rotation = 0D;
-            this.RegistrarBtn.Size = new System.Drawing.Size(220, 60);
-            this.RegistrarBtn.TabIndex = 0;
-            this.RegistrarBtn.Text = "Productos";
-            this.RegistrarBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RegistrarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.RegistrarBtn.UseVisualStyleBackColor = true;
-            this.RegistrarBtn.Click += new System.EventHandler(this.RegistrarBtn_Click);
+            this.productosBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.productosBtn.FlatAppearance.BorderSize = 0;
+            this.productosBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.productosBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.productosBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.productosBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productosBtn.ForeColor = System.Drawing.Color.White;
+            this.productosBtn.IconChar = FontAwesome.Sharp.IconChar.Tv;
+            this.productosBtn.IconColor = System.Drawing.Color.White;
+            this.productosBtn.IconSize = 32;
+            this.productosBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.productosBtn.Location = new System.Drawing.Point(0, 113);
+            this.productosBtn.Name = "productosBtn";
+            this.productosBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.productosBtn.Rotation = 0D;
+            this.productosBtn.Size = new System.Drawing.Size(220, 60);
+            this.productosBtn.TabIndex = 0;
+            this.productosBtn.Text = "Productos";
+            this.productosBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.productosBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.productosBtn.UseVisualStyleBackColor = true;
+            this.productosBtn.Click += new System.EventHandler(this.productosBtn_Click);
             // 
             // PanelContenedorPnl
             // 
@@ -277,6 +281,38 @@
             // HoraFechaTimer
             // 
             this.HoraFechaTimer.Enabled = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.panel5.Location = new System.Drawing.Point(0, 355);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 60);
+            this.panel5.TabIndex = 5;
+            // 
+            // gestionFacturaBtn
+            // 
+            this.gestionFacturaBtn.FlatAppearance.BorderSize = 0;
+            this.gestionFacturaBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.gestionFacturaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gestionFacturaBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.gestionFacturaBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gestionFacturaBtn.ForeColor = System.Drawing.Color.White;
+            this.gestionFacturaBtn.IconChar = FontAwesome.Sharp.IconChar.Tractor;
+            this.gestionFacturaBtn.IconColor = System.Drawing.Color.White;
+            this.gestionFacturaBtn.IconSize = 32;
+            this.gestionFacturaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gestionFacturaBtn.Location = new System.Drawing.Point(0, 355);
+            this.gestionFacturaBtn.Name = "gestionFacturaBtn";
+            this.gestionFacturaBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.gestionFacturaBtn.Rotation = 0D;
+            this.gestionFacturaBtn.Size = new System.Drawing.Size(220, 60);
+            this.gestionFacturaBtn.TabIndex = 6;
+            this.gestionFacturaBtn.Text = "Gestion Facturas";
+            this.gestionFacturaBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gestionFacturaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.gestionFacturaBtn.UseVisualStyleBackColor = true;
+            this.gestionFacturaBtn.Click += new System.EventHandler(this.GestionFacturaBtn_Click);
             // 
             // PrincipalFrm
             // 
@@ -308,15 +344,17 @@
         private System.Windows.Forms.PictureBox MinimizarBtn;
         private System.Windows.Forms.PictureBox MaximizarBtn;
         private System.Windows.Forms.PictureBox CerrarBtn;
-        private FontAwesome.Sharp.IconButton ModificarBtn;
-        private FontAwesome.Sharp.IconButton ConsultarBtn;
-        private FontAwesome.Sharp.IconButton RegistrarBtn;
+        private FontAwesome.Sharp.IconButton facturarBtn;
+        private FontAwesome.Sharp.IconButton clientesBtn;
+        private FontAwesome.Sharp.IconButton productosBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton inicioBtn;
         private System.Windows.Forms.Timer HoraFechaTimer;
+        private System.Windows.Forms.Panel panel5;
+        private FontAwesome.Sharp.IconButton gestionFacturaBtn;
     }
 }
 

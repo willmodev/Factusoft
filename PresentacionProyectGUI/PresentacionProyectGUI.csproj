@@ -61,6 +61,12 @@
     <Compile Include="FacturaFrm.Designer.cs">
       <DependentUpon>FacturaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionarFacturasFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarFacturasFrm.Designer.cs">
+      <DependentUpon>GestionarFacturasFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FacturaFrm.resx">
       <DependentUpon>FacturaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionarFacturasFrm.resx">
+      <DependentUpon>GestionarFacturasFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioFrm.resx">
       <DependentUpon>InicioFrm.cs</DependentUpon>

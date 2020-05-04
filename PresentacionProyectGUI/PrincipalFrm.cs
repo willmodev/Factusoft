@@ -57,7 +57,7 @@ namespace PulsacionesGUI
             this.PanelContenedorPnl.Tag = form;
             form.Show();
         }
-        private void RegistrarBtn_Click(object sender, EventArgs e)
+        private void productosBtn_Click(object sender, EventArgs e)
         {
             AbrirFormHija(new ProductosFrm());
         }
@@ -74,19 +74,24 @@ namespace PulsacionesGUI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void ConsultarBtn_Click(object sender, EventArgs e)
+        private void ClientesBtn_Click(object sender, EventArgs e)
         {
             AbrirFormHija(new ClientesFrm());
         }
 
-        private void ModificarBtn_Click(object sender, EventArgs e)
+        private void FacturarBtn_Click(object sender, EventArgs e)
         {
             AbrirFormHija(new FacturaFrm());
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void InicioBtn_Click(object sender, EventArgs e)
         {
             AbrirFormHija(new InicioFrm());
+        }
+
+        private void GestionFacturaBtn_Click(object sender, EventArgs e)
+        {
+            AbrirFormHija(new GestionarFacturasFrm());
         }
     }
 }

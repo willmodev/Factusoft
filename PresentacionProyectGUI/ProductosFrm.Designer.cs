@@ -133,7 +133,7 @@
             this.SaveBtn.BackColor = System.Drawing.Color.White;
             this.SaveBtn.FlatAppearance.BorderSize = 0;
             this.SaveBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SaveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.SaveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.SaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,7 +164,7 @@
             this.EliminarBtn.BackColor = System.Drawing.Color.White;
             this.EliminarBtn.FlatAppearance.BorderSize = 0;
             this.EliminarBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.EliminarBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.EliminarBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.EliminarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EliminarBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.EliminarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,7 +187,7 @@
             this.iconButton2.BackColor = System.Drawing.Color.White;
             this.iconButton2.FlatAppearance.BorderSize = 0;
             this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,7 +231,7 @@
             this.buscarBtn.BackColor = System.Drawing.Color.White;
             this.buscarBtn.FlatAppearance.BorderSize = 0;
             this.buscarBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buscarBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buscarBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.buscarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buscarBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.buscarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -289,7 +289,7 @@
             this.iconButton1.BackColor = System.Drawing.Color.White;
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

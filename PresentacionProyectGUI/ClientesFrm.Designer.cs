@@ -62,7 +62,7 @@
             this.SaveBtn.BackColor = System.Drawing.Color.White;
             this.SaveBtn.FlatAppearance.BorderSize = 0;
             this.SaveBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SaveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.SaveBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.SaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
