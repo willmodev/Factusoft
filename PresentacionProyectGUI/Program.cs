@@ -16,7 +16,7 @@ namespace PulsacionesGUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PrincipalFrm());
+            Application.Run(new LoginFrm());
         }
     }
 }

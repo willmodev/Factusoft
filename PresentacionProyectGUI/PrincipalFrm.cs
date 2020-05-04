@@ -16,6 +16,7 @@ namespace PulsacionesGUI
         public PrincipalFrm()
         {
             InitializeComponent();
+            AbrirFormHija(new InicioFrm());
         }
        
         private void RestaurarBtn_Click_1(object sender, EventArgs e)
@@ -44,12 +45,6 @@ namespace PulsacionesGUI
             Application.Exit();
         }
 
-      
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void AbrirFormHija(object formHija)
         {
             if (this.PanelContenedorPnl.Controls.Count > 0)
@@ -64,7 +59,7 @@ namespace PulsacionesGUI
         }
         private void RegistrarBtn_Click(object sender, EventArgs e)
         {
-            AbrirFormHija(new RegistrarPersonaFrm());
+            AbrirFormHija(new ProductosFrm());
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -79,11 +74,19 @@ namespace PulsacionesGUI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-       
-
-        private void PanelContenedorPnl_Paint(object sender, PaintEventArgs e)
+        private void ConsultarBtn_Click(object sender, EventArgs e)
         {
+            AbrirFormHija(new ClientesFrm());
+        }
 
+        private void ModificarBtn_Click(object sender, EventArgs e)
+        {
+            AbrirFormHija(new FacturaFrm());
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            AbrirFormHija(new InicioFrm());
         }
     }
 }
