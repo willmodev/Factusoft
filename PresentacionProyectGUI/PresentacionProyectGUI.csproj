@@ -73,6 +73,12 @@
     <Compile Include="InicioFrm.Designer.cs">
       <DependentUpon>InicioFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaProductosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaProductosFrm.Designer.cs">
+      <DependentUpon>ListaProductosFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InicioFrm.resx">
       <DependentUpon>InicioFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaProductosFrm.resx">
+      <DependentUpon>ListaProductosFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>

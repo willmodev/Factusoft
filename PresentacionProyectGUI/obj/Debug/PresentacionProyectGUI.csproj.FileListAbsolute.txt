@@ -19,3 +19,4 @@ D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.LoginFrm.resources
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.InicioFrm.resources
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.GestionarFacturasFrm.resources
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.ListaProductosFrm.resources

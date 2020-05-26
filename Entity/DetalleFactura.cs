@@ -9,19 +9,20 @@ namespace Entity
     public  class DetalleFactura
     {
         public string Factura_ID { get; set; }
-        public Producto Productos { get; set; }
+        public Producto Producto { get; set; }
         public decimal Cantidad { get; set; }
-        public decimal Total { get; set; }
-        public decimal Iva { get; set; }
+        public decimal Importe { get; set; }
+        public decimal Descuento { get; set; }
 
-        public void CalcularTotal()
+        public void CalcularImporte()
         {
-            Total = Cantidad * Productos.PrecioPorKg;
+            Importe = (Cantidad * Producto.ValorUnitario) * (1 - (Descuento/100));
         }
+
 
         public decimal CalcularIva()
         {
-            return Total * (Iva / 100); // iva que se aplica al detalle
+            return Importe * (Producto.IVA  / 100) ; // iva que se aplica al detalle
         }
 
     }

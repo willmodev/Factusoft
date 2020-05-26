@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
+using Entity;
 
 namespace PulsacionesGUI
 {
@@ -62,16 +62,11 @@ namespace PulsacionesGUI
             AbrirFormHija(new ProductosFrm());
         }
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-
-        private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int lParam);
 
         private void BarraTituloPnl_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            MoveWinsows moveWinsows = new MoveWinsows();
+            moveWinsows.MoverVentana(this.Handle);
         }
 
         private void ClientesBtn_Click(object sender, EventArgs e)

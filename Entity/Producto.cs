@@ -10,8 +10,10 @@ namespace Entity
     {
         public string ID { get; set; }
         public string Nombre { get; set; }
-        public decimal PrecioPorKg { get; set; }
+        public decimal ValorUnitario { get; set; }
+        public string UnidadMedida { get; set; }
         public float CantidadBodega { get; set; }
+        public decimal IVA { get; set; }
 
 
     }

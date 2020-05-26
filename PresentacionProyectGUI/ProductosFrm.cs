@@ -21,6 +21,6 @@ namespace PulsacionesGUI
             InitializeComponent();
         }
 
-    
+       
     }
 }

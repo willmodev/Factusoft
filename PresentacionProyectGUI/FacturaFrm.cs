@@ -17,6 +17,15 @@ namespace PulsacionesGUI
             InitializeComponent();
         }
 
+       
         
+        private void BtnVerlista_Click(object sender, EventArgs e)
+        {
+
+            ListaProductosFrm listaProductosFrm = new ListaProductosFrm();
+            listaProductosFrm.ShowDialog();
+        }
+
+      
     }
 }

@@ -10,36 +10,22 @@ using System.Windows.Forms;
 using Entity;
 namespace PulsacionesGUI
 {
-    public partial class LoginFrm : Form
+    public partial class ListaProductosFrm : Form
     {
-        public LoginFrm()
+        public ListaProductosFrm()
         {
             InitializeComponent();
         }
 
         private void CerrarBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
-        private void MinimizarBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             MoveWinsows moveWinsows = new MoveWinsows();
             moveWinsows.MoverVentana(this.Handle);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            PrincipalFrm principalFrm = new PrincipalFrm();
-            this.Visible = false;
-            principalFrm.Show();
-            
 
         }
     }
