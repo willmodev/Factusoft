@@ -1,21 +1,14 @@
 
 CREATE DATABASE Factusoft;
 
-CREATE TABLE Productos(
+CREATE TABLE Products(
 ID NVARCHAR(3) NOT NULL,
-Nombre NVARCHAR(30) NOT NULL,
-ValorUnitario DECIMAL(10,2) NOT NULL,
-UnidadMedida NVARCHAR(3) NOT NULL,
-CantidadBodega FLOAT NOT NULL,
+Name NVARCHAR(30) NOT NULL,
+UnitValue DECIMAL(10,2) NOT NULL,
+UnitMeasure NVARCHAR(3) NOT NULL,
+Quantity FLOAT NOT NULL,
 IVA DECIMAL(4,1) NOT NULL
 
 );
 
 ALTER TABLE Productos ADD CONSTRAINT PK_Productos_ID PRIMARY KEY CLUSTERED (ID);
-
-
-select * from Productos;
-
-drop table Productos ;
-
-commit;
