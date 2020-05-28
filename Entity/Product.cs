@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public class Producto
+    public class Product
     {
         public string ID { get; set; }
-        public string Nombre { get; set; }
-        public decimal ValorUnitario { get; set; }
-        public string UnidadMedida { get; set; }
-        public float CantidadBodega { get; set; }
+        public string Name { get; set; }
+        public decimal UnitValue { get; set; }
+        public string UnitMeasure { get; set; }
+        public float Quantity { get; set; }
         public decimal IVA { get; set; }
 
 

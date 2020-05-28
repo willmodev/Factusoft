@@ -20,3 +20,5 @@ D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.InicioFrm.resources
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.GestionarFacturasFrm.resources
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.ListaProductosFrm.resources
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\DAL.dll
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\DAL.pdb

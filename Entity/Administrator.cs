@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public class Administrador
+    public class Administrator
     {
         public Login Login { get; set; }
 
-        public Administrador(string user, string password)
+        public Administrator(string user, string password)
         {
             Login = new Login(user, password);
         }
