@@ -10,11 +10,13 @@ namespace DAL
     public class ProductRepository
     {
         private readonly SqlConnection sqlConnection;
-        private readonly IList<Product> products;
+        
 
         public ProductRepository(ConnectionManager connection)
         {
+           
             sqlConnection = connection.sqlConnection;
+            
         }
         
         public void Save(Product product)
@@ -49,6 +51,7 @@ namespace DAL
         public IList<Product> Consult()
         {
             SqlDataReader sqlDataReader;
+            IList<Product> products = new List<Product>();
             using (var command = sqlConnection.CreateCommand())
             {
                 command.CommandText = "SELECT * FROM Products";
@@ -77,7 +80,7 @@ namespace DAL
             product.Name = sqlDataReader.GetString(1);
             product.UnitValue = sqlDataReader.GetDecimal(2);
             product.UnitMeasure = sqlDataReader.GetString(3);
-            product.Quantity = sqlDataReader.GetFloat(4);
+            product.Quantity = (float)sqlDataReader.GetDouble(4);
             product.IVA = sqlDataReader.GetDecimal(5);
 
             return product;
@@ -88,7 +91,7 @@ namespace DAL
             SqlDataReader sqlDataReader;
             using (var command = sqlConnection.CreateCommand())
             {
-                command.CommandText = "SELECT * FROM Product WHERE ID = @ID";
+                command.CommandText = "SELECT * FROM Products WHERE ID = @ID";
                 command.Parameters.AddWithValue("@ID", ID);
                 sqlDataReader = command.ExecuteReader();
 
@@ -101,7 +104,7 @@ namespace DAL
         {
             using (var command = sqlConnection.CreateCommand())
             {
-                command.CommandText = "UPDATE Product SET ID = @ID, Name = @Name, UnitValue = @UnitValue," +
+                command.CommandText = "UPDATE Products SET ID = @ID, Name = @Name, UnitValue = @UnitValue," +
                                                         " UnitMeasure = @UnitMeasure, Quantity = @Quantity, IVA = @IVA " +
                                                         "WHERE ID = @ID ";
                 command.Parameters.AddWithValue("@ID", product.ID);

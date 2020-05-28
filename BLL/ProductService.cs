@@ -94,10 +94,10 @@ namespace BLL
         public SearchProductAnswer Search(string ID)
         {
             SearchProductAnswer answer = new SearchProductAnswer();
-
+            
             try
             {
-                connectionManager.CloseConnection();
+                connectionManager.OpenConnection();
                 answer.Product = productRepository.Search(ID);
                 answer.Message = (answer.Product != null) ? "Se encontró la el producto buscado" : "El producto buscado no existe";
                 answer.Error = false;
