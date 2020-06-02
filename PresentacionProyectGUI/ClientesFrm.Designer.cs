@@ -31,28 +31,28 @@
             this.SaveBtn = new FontAwesome.Sharp.IconButton();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.primerNombreTxt = new System.Windows.Forms.TextBox();
+            this.TxtFistName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.segundoNombreTxt = new System.Windows.Forms.TextBox();
+            this.TxtSocondName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.primerApellidoTxt = new System.Windows.Forms.TextBox();
+            this.TxtLastName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.SegundoApellidoTxt = new System.Windows.Forms.TextBox();
+            this.TxtSecondLastName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.identoficacionTxt = new System.Windows.Forms.TextBox();
+            this.TxtCedula = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.telefonoTxt = new System.Windows.Forms.TextBox();
+            this.TxtTelephone = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.correoTxt = new System.Windows.Forms.TextBox();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.direccionTxt = new System.Windows.Forms.TextBox();
+            this.TxtAddressHome = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.barrioTxt = new System.Windows.Forms.TextBox();
+            this.TxtNeighborhood = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.ciudadTxt = new System.Windows.Forms.TextBox();
-            this.sexoCmb = new System.Windows.Forms.ComboBox();
+            this.TxtCity = new System.Windows.Forms.TextBox();
+            this.CmbSex = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DtpDateOfBorn = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -78,6 +78,7 @@
             this.SaveBtn.Text = "Registrar";
             this.SaveBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // label13
             // 
@@ -100,21 +101,21 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label2.Location = new System.Drawing.Point(56, 128);
+            this.label2.Location = new System.Drawing.Point(51, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 59;
             this.label2.Text = "Primer Nombre: ";
             // 
-            // primerNombreTxt
+            // TxtFistName
             // 
-            this.primerNombreTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtFistName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.primerNombreTxt.Location = new System.Drawing.Point(159, 125);
-            this.primerNombreTxt.Name = "primerNombreTxt";
-            this.primerNombreTxt.Size = new System.Drawing.Size(191, 20);
-            this.primerNombreTxt.TabIndex = 58;
+            this.TxtFistName.Location = new System.Drawing.Point(159, 125);
+            this.TxtFistName.Name = "TxtFistName";
+            this.TxtFistName.Size = new System.Drawing.Size(191, 20);
+            this.TxtFistName.TabIndex = 58;
             // 
             // label1
             // 
@@ -123,21 +124,21 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label1.Location = new System.Drawing.Point(41, 166);
+            this.label1.Location = new System.Drawing.Point(36, 166);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 13);
             this.label1.TabIndex = 61;
             this.label1.Text = "Segundo Nombre: ";
             // 
-            // segundoNombreTxt
+            // TxtSocondName
             // 
-            this.segundoNombreTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtSocondName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.segundoNombreTxt.Location = new System.Drawing.Point(159, 162);
-            this.segundoNombreTxt.Name = "segundoNombreTxt";
-            this.segundoNombreTxt.Size = new System.Drawing.Size(191, 20);
-            this.segundoNombreTxt.TabIndex = 60;
+            this.TxtSocondName.Location = new System.Drawing.Point(159, 162);
+            this.TxtSocondName.Name = "TxtSocondName";
+            this.TxtSocondName.Size = new System.Drawing.Size(191, 20);
+            this.TxtSocondName.TabIndex = 60;
             // 
             // label3
             // 
@@ -146,21 +147,21 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label3.Location = new System.Drawing.Point(54, 204);
+            this.label3.Location = new System.Drawing.Point(49, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 63;
             this.label3.Text = "Primer Apellido: ";
             // 
-            // primerApellidoTxt
+            // TxtLastName
             // 
-            this.primerApellidoTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.primerApellidoTxt.Location = new System.Drawing.Point(159, 197);
-            this.primerApellidoTxt.Name = "primerApellidoTxt";
-            this.primerApellidoTxt.Size = new System.Drawing.Size(191, 20);
-            this.primerApellidoTxt.TabIndex = 62;
+            this.TxtLastName.Location = new System.Drawing.Point(159, 197);
+            this.TxtLastName.Name = "TxtLastName";
+            this.TxtLastName.Size = new System.Drawing.Size(191, 20);
+            this.TxtLastName.TabIndex = 62;
             // 
             // label4
             // 
@@ -169,21 +170,21 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label4.Location = new System.Drawing.Point(39, 242);
+            this.label4.Location = new System.Drawing.Point(34, 242);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 13);
             this.label4.TabIndex = 65;
             this.label4.Text = "Segundo Apellido: ";
             // 
-            // SegundoApellidoTxt
+            // TxtSecondLastName
             // 
-            this.SegundoApellidoTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtSecondLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SegundoApellidoTxt.Location = new System.Drawing.Point(159, 236);
-            this.SegundoApellidoTxt.Name = "SegundoApellidoTxt";
-            this.SegundoApellidoTxt.Size = new System.Drawing.Size(191, 20);
-            this.SegundoApellidoTxt.TabIndex = 64;
+            this.TxtSecondLastName.Location = new System.Drawing.Point(159, 236);
+            this.TxtSecondLastName.Name = "TxtSecondLastName";
+            this.TxtSecondLastName.Size = new System.Drawing.Size(191, 20);
+            this.TxtSecondLastName.TabIndex = 64;
             // 
             // label5
             // 
@@ -192,21 +193,21 @@
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label5.Location = new System.Drawing.Point(61, 280);
+            this.label5.Location = new System.Drawing.Point(94, 272);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 13);
+            this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 67;
-            this.label5.Text = "Identificacion: ";
+            this.label5.Text = "Cedula:";
             // 
-            // identoficacionTxt
+            // TxtCedula
             // 
-            this.identoficacionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtCedula.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.identoficacionTxt.Location = new System.Drawing.Point(159, 273);
-            this.identoficacionTxt.Name = "identoficacionTxt";
-            this.identoficacionTxt.Size = new System.Drawing.Size(191, 20);
-            this.identoficacionTxt.TabIndex = 66;
+            this.TxtCedula.Location = new System.Drawing.Point(159, 273);
+            this.TxtCedula.Name = "TxtCedula";
+            this.TxtCedula.Size = new System.Drawing.Size(191, 20);
+            this.TxtCedula.TabIndex = 66;
             // 
             // label6
             // 
@@ -221,15 +222,15 @@
             this.label6.TabIndex = 69;
             this.label6.Text = "Telefono: ";
             // 
-            // telefonoTxt
+            // TxtTelephone
             // 
-            this.telefonoTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtTelephone.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.telefonoTxt.Location = new System.Drawing.Point(551, 125);
-            this.telefonoTxt.Name = "telefonoTxt";
-            this.telefonoTxt.Size = new System.Drawing.Size(191, 20);
-            this.telefonoTxt.TabIndex = 68;
+            this.TxtTelephone.Location = new System.Drawing.Point(551, 125);
+            this.TxtTelephone.Name = "TxtTelephone";
+            this.TxtTelephone.Size = new System.Drawing.Size(191, 20);
+            this.TxtTelephone.TabIndex = 68;
             // 
             // label7
             // 
@@ -244,15 +245,15 @@
             this.label7.TabIndex = 71;
             this.label7.Text = "Correo: ";
             // 
-            // correoTxt
+            // TxtEmail
             // 
-            this.correoTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.correoTxt.Location = new System.Drawing.Point(551, 162);
-            this.correoTxt.Name = "correoTxt";
-            this.correoTxt.Size = new System.Drawing.Size(191, 20);
-            this.correoTxt.TabIndex = 70;
+            this.TxtEmail.Location = new System.Drawing.Point(551, 162);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(191, 20);
+            this.TxtEmail.TabIndex = 70;
             // 
             // label8
             // 
@@ -267,15 +268,15 @@
             this.label8.TabIndex = 73;
             this.label8.Text = "Direccion:";
             // 
-            // direccionTxt
+            // TxtAddressHome
             // 
-            this.direccionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtAddressHome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.direccionTxt.Location = new System.Drawing.Point(551, 199);
-            this.direccionTxt.Name = "direccionTxt";
-            this.direccionTxt.Size = new System.Drawing.Size(191, 20);
-            this.direccionTxt.TabIndex = 72;
+            this.TxtAddressHome.Location = new System.Drawing.Point(551, 199);
+            this.TxtAddressHome.Name = "TxtAddressHome";
+            this.TxtAddressHome.Size = new System.Drawing.Size(191, 20);
+            this.TxtAddressHome.TabIndex = 72;
             // 
             // label9
             // 
@@ -290,15 +291,15 @@
             this.label9.TabIndex = 75;
             this.label9.Text = "Barrio:";
             // 
-            // barrioTxt
+            // TxtNeighborhood
             // 
-            this.barrioTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtNeighborhood.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.barrioTxt.Location = new System.Drawing.Point(551, 236);
-            this.barrioTxt.Name = "barrioTxt";
-            this.barrioTxt.Size = new System.Drawing.Size(191, 20);
-            this.barrioTxt.TabIndex = 74;
+            this.TxtNeighborhood.Location = new System.Drawing.Point(551, 236);
+            this.TxtNeighborhood.Name = "TxtNeighborhood";
+            this.TxtNeighborhood.Size = new System.Drawing.Size(191, 20);
+            this.TxtNeighborhood.TabIndex = 74;
             // 
             // label10
             // 
@@ -313,29 +314,29 @@
             this.label10.TabIndex = 77;
             this.label10.Text = "Ciudad:";
             // 
-            // ciudadTxt
+            // TxtCity
             // 
-            this.ciudadTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtCity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ciudadTxt.Location = new System.Drawing.Point(551, 273);
-            this.ciudadTxt.Name = "ciudadTxt";
-            this.ciudadTxt.Size = new System.Drawing.Size(191, 20);
-            this.ciudadTxt.TabIndex = 76;
+            this.TxtCity.Location = new System.Drawing.Point(551, 273);
+            this.TxtCity.Name = "TxtCity";
+            this.TxtCity.Size = new System.Drawing.Size(191, 20);
+            this.TxtCity.TabIndex = 76;
             // 
-            // sexoCmb
+            // CmbSex
             // 
-            this.sexoCmb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.CmbSex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sexoCmb.FormattingEnabled = true;
-            this.sexoCmb.Items.AddRange(new object[] {
+            this.CmbSex.FormattingEnabled = true;
+            this.CmbSex.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.sexoCmb.Location = new System.Drawing.Point(159, 308);
-            this.sexoCmb.Name = "sexoCmb";
-            this.sexoCmb.Size = new System.Drawing.Size(66, 21);
-            this.sexoCmb.TabIndex = 78;
+            this.CmbSex.Location = new System.Drawing.Point(159, 308);
+            this.CmbSex.Name = "CmbSex";
+            this.CmbSex.Size = new System.Drawing.Size(66, 21);
+            this.CmbSex.TabIndex = 78;
             // 
             // label11
             // 
@@ -344,22 +345,22 @@
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label11.Location = new System.Drawing.Point(114, 316);
+            this.label11.Location = new System.Drawing.Point(105, 310);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(39, 13);
             this.label11.TabIndex = 79;
             this.label11.Text = "Sexo:";
             // 
-            // dateTimePicker1
+            // DtpDateOfBorn
             // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DtpDateOfBorn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(551, 310);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(191, 20);
-            this.dateTimePicker1.TabIndex = 80;
+            this.DtpDateOfBorn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpDateOfBorn.Location = new System.Drawing.Point(551, 310);
+            this.DtpDateOfBorn.Name = "DtpDateOfBorn";
+            this.DtpDateOfBorn.Size = new System.Drawing.Size(191, 20);
+            this.DtpDateOfBorn.TabIndex = 80;
             // 
             // label12
             // 
@@ -380,32 +381,32 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(860, 512);
-            this.Controls.Add(this.sexoCmb);
+            this.Controls.Add(this.CmbSex);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.telefonoTxt);
+            this.Controls.Add(this.TxtTelephone);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.correoTxt);
+            this.Controls.Add(this.TxtEmail);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.direccionTxt);
+            this.Controls.Add(this.DtpDateOfBorn);
+            this.Controls.Add(this.TxtAddressHome);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.SegundoApellidoTxt);
+            this.Controls.Add(this.TxtSecondLastName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.barrioTxt);
+            this.Controls.Add(this.TxtNeighborhood);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.identoficacionTxt);
+            this.Controls.Add(this.TxtCedula);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.ciudadTxt);
+            this.Controls.Add(this.TxtCity);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.primerApellidoTxt);
+            this.Controls.Add(this.TxtLastName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.segundoNombreTxt);
+            this.Controls.Add(this.TxtSocondName);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.SaveBtn);
-            this.Controls.Add(this.primerNombreTxt);
+            this.Controls.Add(this.TxtFistName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ClientesFrm";
             this.Text = "ClientesFrm";
@@ -418,28 +419,28 @@
         private FontAwesome.Sharp.IconButton SaveBtn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox primerNombreTxt;
+        private System.Windows.Forms.TextBox TxtFistName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox segundoNombreTxt;
+        private System.Windows.Forms.TextBox TxtSocondName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox primerApellidoTxt;
+        private System.Windows.Forms.TextBox TxtLastName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox SegundoApellidoTxt;
+        private System.Windows.Forms.TextBox TxtSecondLastName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox identoficacionTxt;
+        private System.Windows.Forms.TextBox TxtCedula;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox telefonoTxt;
+        private System.Windows.Forms.TextBox TxtTelephone;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox correoTxt;
+        private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox direccionTxt;
+        private System.Windows.Forms.TextBox TxtAddressHome;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox barrioTxt;
+        private System.Windows.Forms.TextBox TxtNeighborhood;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox ciudadTxt;
-        private System.Windows.Forms.ComboBox sexoCmb;
+        private System.Windows.Forms.TextBox TxtCity;
+        private System.Windows.Forms.ComboBox CmbSex;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DtpDateOfBorn;
         private System.Windows.Forms.Label label12;
     }
 }

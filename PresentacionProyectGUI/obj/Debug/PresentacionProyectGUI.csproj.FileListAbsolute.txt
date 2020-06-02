@@ -22,3 +22,5 @@ D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\obj\Debug\PulsacionesGUI.ListaProductosFrm.resources
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\DAL.dll
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\DAL.pdb
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\Infrastructure.dll
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\Infrastructure.pdb

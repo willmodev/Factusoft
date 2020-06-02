@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entity;
 using DAL;
+using Infrastructure;
 namespace BLL
 {
     public class ProductService
@@ -28,7 +29,6 @@ namespace BLL
             }
             catch (Exception e)
             {
-
                 return $"Error de aplicacion: {e.Message}";
             }
             finally { connectionManager.CloseConnection(); }

@@ -9,6 +9,8 @@ namespace Entity
     public class Administrator
     {
         public Login Login { get; set; }
+        public string Email { get; set; }
+        public string PasswordEmail { get; set; }
 
         public Administrator(string user, string password)
         {

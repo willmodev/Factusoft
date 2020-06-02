@@ -13,17 +13,14 @@ namespace Entity
         public string LastName { get; set; }
         public string SecondLastName { get; set; }
         public string Cedula { get; set; }
-        public decimal Age { get; set; }
         public string Sex { get; set; }
         public DateTime DateOfBorn { get; set; }
         public string Telephone { get; set; }
         public string E_mail { get; set; }
-        public Address Address { get; set; }
+        public int Address_ID { get; set; }
 
-        public void CalcularEdad()
-        {
-            Age =  (((DateTime.Now - DateOfBorn).Days) / 365);
-        }
+        public decimal Age { get { return (((DateTime.Now - DateOfBorn).Days) / 365); } }
+        
 
     }
 }

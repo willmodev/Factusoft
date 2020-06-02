@@ -13,3 +13,5 @@ D:\University\Programacion III\PresentacionProyectGUI\BLL\bin\Debug\Entity.dll
 D:\University\Programacion III\PresentacionProyectGUI\BLL\bin\Debug\DAL.pdb
 D:\University\Programacion III\PresentacionProyectGUI\BLL\bin\Debug\Entity.pdb
 D:\University\Programacion III\PresentacionProyectGUI\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\University\Programacion III\PresentacionProyectGUI\BLL\bin\Debug\Infrastructure.dll
+D:\University\Programacion III\PresentacionProyectGUI\BLL\bin\Debug\Infrastructure.pdb

@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 {
     public class Address
     {
-        public string Address_ID { get; set; }
+        public int Address_ID { get; set; }
         public string AddressHome { get; set; }
-        public string Neighbcityorhood { get; set; }
-        public string Ciudad { get; set; }
+        public string Neighborhood { get; set; }
+        public string City { get; set; }
+        public string Cedula { get; set; }
     }
 }
