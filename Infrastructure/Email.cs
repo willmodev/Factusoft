@@ -27,20 +27,20 @@ namespace Infrastructure
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
 
-            smtpClient.Credentials = new System.Net.NetworkCredential("toeyubu@gmail.com", "xxxxxxxxxxxx");
+            smtpClient.Credentials = new System.Net.NetworkCredential("gutierrezjk18@gmail.com", "juank200141");
         }
         private void ConfigureEmail(Client client)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            string ruta = @"D: \University\Programacion III\productos.pdf";
+            string ruta = string.Empty;
 
             mailMessage = new MailMessage();
             mailMessage.To.Add(client.E_mail);
-            mailMessage.From = new MailAddress("toeyubu@gmail.com");
-            mailMessage.Subject = "Willinton Mora - Lista de productos - " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
+            mailMessage.From = new MailAddress("gutierrezjk18@gmail.com");
+            mailMessage.Subject = "Juan Carlos Gutierrez - Reporte de productos - " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             mailMessage.Body = $"<b>Sr {client.FirstName} </b> <br " +
-                $"> Se adjunta el informe de la lista de productos";
+                $"> Reportes de productos de la app Factusoft";
 
             openFileDialog.ShowDialog();
 

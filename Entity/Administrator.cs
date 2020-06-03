@@ -8,13 +8,21 @@ namespace Entity
 {
     public class Administrator
     {
-        public Login Login { get; set; }
+        public string User { get; set; }
+        public string Password { get; set; }
         public string Email { get; set; }
         public string PasswordEmail { get; set; }
 
+        public Administrator()
+        {
+
+        }
         public Administrator(string user, string password)
         {
-            Login = new Login(user, password);
+            User = user;
+            Password = password;
+            Email = string.Empty;
+            PasswordEmail = string.Empty;
         }
 
     }

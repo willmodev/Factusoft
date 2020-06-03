@@ -96,3 +96,17 @@ BEGIN
 	UPDATE Clients SET Address_ID = @NewAddress_ID  WHERE Cedula = @NewCedula;
 
 END;
+
+--------------------------Se crea la tabla Administrator----------------------------
+CREATE TABLE Administrator(userName NVARCHAR(15),passwordName NVARCHAR(15),Email NVARCHAR(30), passwordEmail NVARCHAR(30));
+
+
+-----------------Se cera Procedimiento para validar los datos de acceso------------------
+CREATE PROC validate_user
+
+@userName NVARCHAR(15),
+@passwordName NVARCHAR(15)
+
+AS
+		SELECT * FROM Administrator WHERE userName = @userName AND passwordName = @passwordName;
+GO

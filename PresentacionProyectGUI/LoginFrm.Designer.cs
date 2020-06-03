@@ -34,14 +34,15 @@
             this.CerrarBtn = new System.Windows.Forms.PictureBox();
             this.TxtUser = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnLogin = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lienaPnl = new System.Windows.Forms.Panel();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.TxtPassword = new System.Windows.Forms.TextBox();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.label1 = new System.Windows.Forms.Label();
+            this.LblMessage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizarBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CerrarBtn)).BeginInit();
@@ -110,20 +111,20 @@
             this.checkBox1.Text = "Remember me";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BtnLogin
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(190)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(34, 373);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(305, 45);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(190)))));
+            this.BtnLogin.FlatAppearance.BorderSize = 0;
+            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLogin.ForeColor = System.Drawing.Color.White;
+            this.BtnLogin.Location = new System.Drawing.Point(34, 373);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(305, 45);
+            this.BtnLogin.TabIndex = 6;
+            this.BtnLogin.Text = "Login";
+            this.BtnLogin.UseVisualStyleBackColor = false;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // linkLabel1
             // 
@@ -158,6 +159,16 @@
             this.shapeContainer1.TabIndex = 9;
             this.shapeContainer1.TabStop = false;
             // 
+            // lineShape2
+            // 
+            this.lineShape2.BorderColor = System.Drawing.Color.White;
+            this.lineShape2.Enabled = false;
+            this.lineShape2.Name = "lineShape2";
+            this.lineShape2.X1 = 34;
+            this.lineShape2.X2 = 339;
+            this.lineShape2.Y1 = 274;
+            this.lineShape2.Y2 = 274;
+            // 
             // lineShape1
             // 
             this.lineShape1.BorderColor = System.Drawing.Color.White;
@@ -182,16 +193,6 @@
             this.TxtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
             this.TxtPassword.Leave += new System.EventHandler(this.TxtPassword_Leave);
             // 
-            // lineShape2
-            // 
-            this.lineShape2.BorderColor = System.Drawing.Color.White;
-            this.lineShape2.Enabled = false;
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 34;
-            this.lineShape2.X2 = 339;
-            this.lineShape2.Y1 = 274;
-            this.lineShape2.Y2 = 274;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -203,17 +204,28 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Inicio de sesión";
             // 
+            // LblMessage
+            // 
+            this.LblMessage.AutoSize = true;
+            this.LblMessage.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMessage.ForeColor = System.Drawing.Color.Red;
+            this.LblMessage.Location = new System.Drawing.Point(35, 288);
+            this.LblMessage.Name = "LblMessage";
+            this.LblMessage.Size = new System.Drawing.Size(0, 17);
+            this.LblMessage.TabIndex = 12;
+            // 
             // LoginFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
             this.ClientSize = new System.Drawing.Size(391, 557);
+            this.Controls.Add(this.LblMessage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.lienaPnl);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.TxtUser);
             this.Controls.Add(this.panel1);
@@ -239,7 +251,7 @@
         private System.Windows.Forms.PictureBox CerrarBtn;
         private System.Windows.Forms.TextBox TxtUser;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Panel lienaPnl;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
@@ -247,5 +259,6 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblMessage;
     }
 }
