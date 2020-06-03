@@ -112,6 +112,22 @@ namespace BLL
             }
             finally { connectionManager.CloseConnection(); }
         }
+
+        public string GeneratePDF(IList<Product> products, string fileName)
+        {
+            DocumentPDF documentPDF = new DocumentPDF();
+
+            try
+            {
+                documentPDF.savePDF(products,fileName);
+                return "Se genero el PDF corectamente!";
+            }
+            catch (Exception e)
+            {
+
+                return $"Error al crear documento {e.Message}";
+            }
+        }
     }
 
 

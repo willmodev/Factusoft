@@ -161,6 +161,7 @@
             // lineShape1
             // 
             this.lineShape1.BorderColor = System.Drawing.Color.White;
+            this.lineShape1.Enabled = false;
             this.lineShape1.Name = "lineShape1";
             this.lineShape1.X1 = 33;
             this.lineShape1.X2 = 338;
@@ -184,6 +185,7 @@
             // lineShape2
             // 
             this.lineShape2.BorderColor = System.Drawing.Color.White;
+            this.lineShape2.Enabled = false;
             this.lineShape2.Name = "lineShape2";
             this.lineShape2.X1 = 34;
             this.lineShape2.X2 = 339;

@@ -211,5 +211,29 @@ namespace PulsacionesGUI
             }
 
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            ConsultProductAnswer answer = productService.Consult();
+
+            saveFileDialog.Title = "Guardar informe de productos";
+            saveFileDialog.InitialDirectory = @"D:\University\Programacion III";
+            saveFileDialog.DefaultExt = "pdf";
+
+            string fileName = "";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                fileName = saveFileDialog.FileName; 
+            if(fileName != "" && answer.Products.Count > 0)
+            {
+                string message = productService.GeneratePDF(answer.Products,fileName);
+                MessageBox.Show(message, "Generar PDF", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se especifico una ruta o no hay datos para generar el reporte", "Generar Pdf", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

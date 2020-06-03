@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using Entity;
+using System.Windows.Forms;
 
 namespace Infrastructure
 {
@@ -26,17 +27,27 @@ namespace Infrastructure
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
 
-            smtpClient.Credentials = new System.Net.NetworkCredential("email", "password");
+            smtpClient.Credentials = new System.Net.NetworkCredential("toeyubu@gmail.com", "xxxxxxxxxxxx");
         }
         private void ConfigureEmail(Client client)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            string ruta = @"D: \University\Programacion III\productos.pdf";
+
             mailMessage = new MailMessage();
             mailMessage.To.Add(client.E_mail);
-            mailMessage.From = new MailAddress("email");
-            mailMessage.Subject = "Registro de usuario - " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
+            mailMessage.From = new MailAddress("toeyubu@gmail.com");
+            mailMessage.Subject = "Willinton Mora - Lista de productos - " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             mailMessage.Body = $"<b>Sr {client.FirstName} </b> <br " +
-                $"> Se ha realizado el registro satisfactoriamente";
+                $"> Se adjunta el informe de la lista de productos";
 
+            openFileDialog.ShowDialog();
+
+            if(openFileDialog.FileName.Equals("") == false)
+                ruta = openFileDialog.FileName;
+
+            mailMessage.Attachments.Add( new Attachment(ruta));
             mailMessage.IsBodyHtml = true;
             mailMessage.Priority = MailPriority.Normal;
 

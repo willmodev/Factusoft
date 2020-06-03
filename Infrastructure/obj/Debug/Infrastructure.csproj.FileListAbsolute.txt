@@ -6,3 +6,5 @@ D:\University\Programacion III\PresentacionProyectGUI\Infrastructure\obj\Debug\I
 D:\University\Programacion III\PresentacionProyectGUI\Infrastructure\obj\Debug\Infrastructure.csproj.CopyComplete
 D:\University\Programacion III\PresentacionProyectGUI\Infrastructure\obj\Debug\Infrastructure.dll
 D:\University\Programacion III\PresentacionProyectGUI\Infrastructure\obj\Debug\Infrastructure.pdb
+D:\University\Programacion III\PresentacionProyectGUI\Infrastructure\bin\Debug\itextsharp.dll
+D:\University\Programacion III\PresentacionProyectGUI\Infrastructure\bin\Debug\itextsharp.xml
