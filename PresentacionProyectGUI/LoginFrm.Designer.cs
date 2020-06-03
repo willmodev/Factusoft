@@ -32,14 +32,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.MinimizarBtn = new System.Windows.Forms.PictureBox();
             this.CerrarBtn = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.passwordLbl = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtUser = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lienaPnl = new System.Windows.Forms.Panel();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizarBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CerrarBtn)).BeginInit();
@@ -81,50 +83,20 @@
             this.CerrarBtn.TabStop = false;
             this.CerrarBtn.Click += new System.EventHandler(this.CerrarBtn_Click);
             // 
-            // textBox1
+            // TxtUser
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(211)))), ((int)(((byte)(192)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(34, 194);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(305, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(30, 170);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "User:";
-            // 
-            // passwordLbl
-            // 
-            this.passwordLbl.AutoSize = true;
-            this.passwordLbl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLbl.ForeColor = System.Drawing.Color.White;
-            this.passwordLbl.Location = new System.Drawing.Point(30, 251);
-            this.passwordLbl.Name = "passwordLbl";
-            this.passwordLbl.Size = new System.Drawing.Size(82, 21);
-            this.passwordLbl.TabIndex = 4;
-            this.passwordLbl.Text = "Password";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(211)))), ((int)(((byte)(192)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(34, 275);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(305, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.TxtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.TxtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtUser.ForeColor = System.Drawing.Color.White;
+            this.TxtUser.Location = new System.Drawing.Point(33, 182);
+            this.TxtUser.Name = "TxtUser";
+            this.TxtUser.Size = new System.Drawing.Size(306, 20);
+            this.TxtUser.TabIndex = 1;
+            this.TxtUser.TabStop = false;
+            this.TxtUser.Text = "user";
+            this.TxtUser.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.TxtUser.Leave += new System.EventHandler(this.TxtUser_Leave);
             // 
             // checkBox1
             // 
@@ -174,21 +146,76 @@
             this.lienaPnl.Size = new System.Drawing.Size(305, 1);
             this.lienaPnl.TabIndex = 8;
             // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape2,
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(391, 557);
+            this.shapeContainer1.TabIndex = 9;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.BorderColor = System.Drawing.Color.White;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 33;
+            this.lineShape1.X2 = 338;
+            this.lineShape1.Y1 = 204;
+            this.lineShape1.Y2 = 204;
+            // 
+            // TxtPassword
+            // 
+            this.TxtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.TxtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPassword.ForeColor = System.Drawing.Color.White;
+            this.TxtPassword.Location = new System.Drawing.Point(33, 252);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.Size = new System.Drawing.Size(306, 20);
+            this.TxtPassword.TabIndex = 10;
+            this.TxtPassword.Text = "password";
+            this.TxtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
+            this.TxtPassword.Leave += new System.EventHandler(this.TxtPassword_Leave);
+            // 
+            // lineShape2
+            // 
+            this.lineShape2.BorderColor = System.Drawing.Color.White;
+            this.lineShape2.Name = "lineShape2";
+            this.lineShape2.X1 = 34;
+            this.lineShape2.X2 = 339;
+            this.lineShape2.Y1 = 274;
+            this.lineShape2.Y2 = 274;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(89, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 33);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Inicio de sesión";
+            // 
             // LoginFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
             this.ClientSize = new System.Drawing.Size(391, 557);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.lienaPnl);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.passwordLbl);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtUser);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.shapeContainer1);
             this.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginFrm";
@@ -208,13 +235,15 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox MinimizarBtn;
         private System.Windows.Forms.PictureBox CerrarBtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label passwordLbl;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtUser;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Panel lienaPnl;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private System.Windows.Forms.TextBox TxtPassword;
+        private System.Windows.Forms.Label label1;
     }
 }

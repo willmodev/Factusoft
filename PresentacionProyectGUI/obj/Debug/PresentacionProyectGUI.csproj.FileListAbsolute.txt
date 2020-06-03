@@ -24,3 +24,5 @@ D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\DAL.pdb
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\Infrastructure.dll
 D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\Infrastructure.pdb
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+D:\University\Programacion III\PresentacionProyectGUI\PresentacionProyectGUI\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml

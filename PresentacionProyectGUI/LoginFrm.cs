@@ -42,5 +42,29 @@ namespace PulsacionesGUI
             
 
         }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (TxtUser.Text == "user") TxtUser.Text = "";
+        }
+
+        private void TxtPassword_Enter(object sender, EventArgs e)
+        {
+            if (TxtPassword.Text == "password") TxtPassword.Text = "";
+
+                TxtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void TxtUser_Leave(object sender, EventArgs e)
+        {
+            if (TxtUser.Text == "") TxtUser.Text = "user";
+        }
+
+        private void TxtPassword_Leave(object sender, EventArgs e)
+        {
+            if (TxtPassword.Text == "") TxtPassword.Text = "password";
+
+                TxtPassword.UseSystemPasswordChar = false;
+        }
     }
 }
