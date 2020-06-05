@@ -17,7 +17,9 @@ namespace Entity
         public DateTime DateOfBorn { get; set; }
         public string Telephone { get; set; }
         public string E_mail { get; set; }
-        public int Address_ID { get; set; }
+        public string AddressHome { get; set; }
+        public string Neighborhood { get; set; }
+        public string City { get; set; }
 
         public decimal Age { get { return (((DateTime.Now - DateOfBorn).Days) / 365); } }
         

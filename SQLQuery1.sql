@@ -20,7 +20,7 @@ ALTER TABLE Productos ADD CONSTRAINT PK_Productos_ID PRIMARY KEY CLUSTERED (ID);
 
 CREATE TABLE Clients
 (
-	            FirstName NVARCHAR(15) NOT NULL,
+	        FirstName NVARCHAR(15) NOT NULL,
                 secondName NVARCHAR(15)NOT NULL,
                 LastName NVARCHAR(15) NOT NULL,
                 SecondLastName NVARCHAR(15) NOT NULL,
@@ -30,22 +30,16 @@ CREATE TABLE Clients
                 Age INT NOT NULL,
                 Telephone NVARCHAR(11) NOT NULL,
                 E_mail NVARCHAR(30) NOT NULL,
-		Address_ID INT DEFAULT 0,
+		AddressHome NVARCHAR(10) NOT NULL,
+		Neighborhood NVARCHAR(15) NOT NULL,
+		City NVARCHAR(15) NOT NULL
 )
 
 
 ALTER TABLE Clients ADD CONSTRAINT PK_Client_cedula PRIMARY KEY (Cedula);
 
 ------------------------Se cera la tabla Address--------------------------
-CREATE TABLE Address
- (
-	Address_ID INT NOT NULL,
-	AddressHome NVARCHAR(10) NOT NULL,
-	Neighborhood NVARCHAR(15) NOT NULL,
-	City NVARCHAR(15) NOT NULL,
-	Cedula NVARCHAR(11) NOT NULL
- 
- )
+
 
 -------------------------Se crea procedimiento para guardar un cliente----------------------------
 CREATE PROC insert_client
@@ -59,43 +53,15 @@ CREATE PROC insert_client
 	@DateOfBorn DATE ,
 	@Age INT ,
 	@Telephone NVARCHAR(11) ,
-	@E_mail NVARCHAR(30)
+	@E_mail NVARCHAR(30),
+	@AddressHome NVARCHAR(10),
+	@Neighborhood NVARCHAR(15),
+	@City NVARCHAR(15)
 AS
-  INSERT INTO Clients VALUES(@FirstName,@secondName, @LastName, @SecondLastName,@Cedula, @Sex, @DateOfBorn,@Age,@Telephone, @E_mail,NULL );
+  INSERT INTO Clients VALUES(@FirstName,@secondName, @LastName, @SecondLastName,@Cedula, 
+			     @Sex, @DateOfBorn,@Age,@Telephone, @E_mail,@AddressHome,@Neighborhood,@City);
 GO
 
--------------------------Se crea una secuencia para el Address_ID de la tabal Address--------------------
-
- CREATE SEQUENCE sec_address  MINVALUE 1 START WITH 1 INCREMENT BY  1  NO CYCLE;
-
-
--------------------------Se crea procedimiento para guardar Address----------------------------
- CREATE PROC insert_address
-
- @AddressHome NVARCHAR(10),
- @Neighborhood NVARCHAR(15),
- @City NVARCHAR(15),
- @Cedula NVARCHAR(11)
- AS
-    INSERT INTO Address VALUES(NEXT VALUE FOR sec_address,@AddressHome,@Neighborhood,@City,@Cedula)
- GO
-
-
--------------------------Se crea trigger(disparador) que inserta el Address_ID correspondiente en la tabla Clients----------------------------
-CREATE OR ALTER  TRIGGER update_address_id_client
- ON Address
- AFTER INSERT
- AS
-BEGIN
-	DECLARE @NewAddress_ID INT, @NewCedula INT;
-
-	SELECT @NewAddress_ID  = Address_ID  FROM INSERTED;
-	SELECT @NewCedula  = Cedula  FROM INSERTED;
-
-	
-	UPDATE Clients SET Address_ID = @NewAddress_ID  WHERE Cedula = @NewCedula;
-
-END;
 
 --------------------------Se crea la tabla Administrator----------------------------
 CREATE TABLE Administrator(userName NVARCHAR(15),passwordName NVARCHAR(15),Email NVARCHAR(30), passwordEmail NVARCHAR(30));

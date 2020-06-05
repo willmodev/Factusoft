@@ -35,6 +35,9 @@ namespace DAL
                 command.Parameters.AddWithValue("@Age", client.Age);
                 command.Parameters.AddWithValue("@Telephone", client.Telephone);
                 command.Parameters.AddWithValue("@E_mail", client.E_mail);
+                command.Parameters.AddWithValue("@AddressHome", client.AddressHome);
+                command.Parameters.AddWithValue("@Neighborhood", client.Neighborhood);
+                command.Parameters.AddWithValue("@City", client.City);
                 command.ExecuteNonQuery();
 
 

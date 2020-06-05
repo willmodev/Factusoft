@@ -44,7 +44,6 @@
     <Compile Include="Administrator.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="InvoiceDetail.cs" />
-    <Compile Include="Address.cs" />
     <Compile Include="Invoice.cs" />
     <Compile Include="MoveWinsows.cs" />
     <Compile Include="Product.cs" />
