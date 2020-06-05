@@ -20,16 +20,16 @@ namespace Infrastructure
             smtpClient = new SmtpClient();
         }
 
-        private void ConfigureSmtp()
+        private void ConfigureSmtp(Administrator admin)
         {
             smtpClient.Host = "smtp.gmail.com";
             smtpClient.Port = 587;
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
 
-            smtpClient.Credentials = new System.Net.NetworkCredential("gutierrezjk18@gmail.com", "juank200141");
+            smtpClient.Credentials = new System.Net.NetworkCredential(admin.Email, admin.PasswordEmail);
         }
-        private void ConfigureEmail(Client client)
+        private void ConfigureEmail(Client client, Administrator admin)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
@@ -37,8 +37,8 @@ namespace Infrastructure
 
             mailMessage = new MailMessage();
             mailMessage.To.Add(client.E_mail);
-            mailMessage.From = new MailAddress("gutierrezjk18@gmail.com");
-            mailMessage.Subject = "Juan Carlos Gutierrez - Reporte de productos - " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
+            mailMessage.From = new MailAddress(admin.Email);
+            mailMessage.Subject = "Reporte de productos - " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             mailMessage.Body = $"<b>Sr {client.FirstName} </b> <br " +
                 $"> Reportes de productos de la app Factusoft";
 
@@ -53,12 +53,12 @@ namespace Infrastructure
 
         }
 
-        public string SendEmail(Client client)
+        public string SendEmail(Client client, Administrator admin)
         {
             try
             {
-                ConfigureSmtp();
-                ConfigureEmail(client);
+                ConfigureSmtp(admin);
+                ConfigureEmail(client, admin);
                 smtpClient.Send(mailMessage);
 
                 return "Correo enviado Satisfactoriamente";

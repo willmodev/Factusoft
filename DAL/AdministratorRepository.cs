@@ -39,5 +39,32 @@ namespace DAL
             }
         }
 
+        public Administrator GetAdministrator()
+        {
+            SqlDataReader sqlDataReader;
+
+            using (var command = sqlConnection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Administrator";
+                 sqlDataReader  =  command.ExecuteReader();
+
+                return sqlDataReader.Read() ? DataReaderMapToAdministrator(sqlDataReader) : null;
+            }
+        }
+
+        public Administrator DataReaderMapToAdministrator(SqlDataReader sqlDataReader)
+        {
+            if (!sqlDataReader.HasRows) return null;
+
+            Administrator admin = new Administrator();
+
+            admin.User = sqlDataReader.GetString(0);
+            admin.Password = sqlDataReader.GetString(1);
+            admin.Email = sqlDataReader.GetString(2);
+            admin.PasswordEmail = sqlDataReader.GetString(3);
+
+            return admin;
+        }
+
     }
 }

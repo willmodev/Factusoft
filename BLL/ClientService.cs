@@ -20,7 +20,7 @@ namespace BLL
             connectionManager = new ConnectionManager(connectionString);
             clientRepository = new ClientRepository(connectionManager);
         }
-        public SaveClientAnswer Save(Client client)
+        public SaveClientAnswer Save(Client client, Administrator admin)
         {
              Email email = new Email();
             SaveClientAnswer answer = new SaveClientAnswer();
@@ -32,7 +32,7 @@ namespace BLL
                 connectionManager.OpenConnection();
                 answer.Error = false;
                 clientRepository.Save(client);
-                messageEmail = email.SendEmail(client);
+                messageEmail = email.SendEmail(client, admin);
                 answer.Message = $"Los Datos del cliete {client.FirstName} se han guardado satisfactoriamente { messageEmail}" ;
 
                 return answer;

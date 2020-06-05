@@ -17,15 +17,31 @@ namespace PulsacionesGUI
     {
         private ClientService clientService;
         private AddressService addressService;
+        private AdministratorService adminService;
+
         public ClientesFrm()
         {
             InitializeComponent();
             var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             clientService = new ClientService(connectionString);
             addressService = new AddressService(connectionString);
+            adminService = new AdministratorService(connectionString);
         }
 
+        private Administrator MapOutAdministrator()
+        {
+            GetAdministratorAnswer answer = adminService.GetAdministrator();
 
+            if(!answer.Error)
+            {
+                if (answer.Admin == null) MessageBox.Show(answer.Message);
+            }else
+            {
+                MessageBox.Show(answer.Message);
+            }
+
+            return answer.Admin;
+        }
 
 
         private Client MapOutClient()
@@ -62,7 +78,7 @@ namespace PulsacionesGUI
         private void SaveBtn_Click(object sender, EventArgs e)
         {
 
-            SaveClientAnswer answerClient = clientService.Save(MapOutClient());
+            SaveClientAnswer answerClient = clientService.Save(MapOutClient(), MapOutAdministrator());
             SaveAddressAnswer answerAddress = addressService.Save(MapOutAddress());
 
                 MessageBox.Show(answerClient.Message);

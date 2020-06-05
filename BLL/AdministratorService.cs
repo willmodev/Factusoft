@@ -40,13 +40,44 @@ namespace BLL
             finally { connectionManager.CloseConnection(); }
         }
 
+        public GetAdministratorAnswer GetAdministrator()
+        {
+
+            GetAdministratorAnswer answer = new GetAdministratorAnswer();
+            try
+            {
+                connectionManager.OpenConnection();
+                answer.Error = false;
+                answer.Admin = administratorRepository.GetAdministrator();
+                if (answer.Admin == null) answer.Message = "No existen datos del administrador";
+
+                return answer;
+
+            }
+            catch (Exception e)
+            {
+                answer.Error = true;
+                answer.Message = $"Error de aplicacion {e.Message}";
+                answer.Admin = null;
+                return answer;
+
+            }
+            finally { connectionManager.CloseConnection(); }
+        }
+
+    }
+
+    public class GetAdministratorAnswer
+    {
+        public Administrator Admin { get; set; }
+        public bool Error { get; set; }
+        public string Message { get; set; }
     }
 
     public class LoginAnswer
     {
         public bool ValidData { get; set; }
         public string Message { get; set; }
-
         public bool Error { get; set; }
     }
 }
