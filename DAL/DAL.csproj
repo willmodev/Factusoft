@@ -44,6 +44,7 @@
     <Compile Include="AdministratorRepository.cs" />
     <Compile Include="ClientRepository.cs" />
     <Compile Include="ConnectionManager.cs" />
+    <Compile Include="InvoiceRepository.cs" />
     <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

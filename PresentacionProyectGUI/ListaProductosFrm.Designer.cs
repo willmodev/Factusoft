@@ -32,17 +32,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.CerrarBtn = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnSelect = new FontAwesome.Sharp.IconButton();
+            this.DgvProductsList = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CerrarBtn)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProductsList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,70 +67,47 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.iconButton1);
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.BtnSelect);
+            this.panel2.Controls.Add(this.DgvProductsList);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Location = new System.Drawing.Point(12, 42);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(581, 355);
             this.panel2.TabIndex = 103;
             // 
-            // iconButton1
+            // BtnSelect
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.Lime;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.iconButton1.IconColor = System.Drawing.Color.Lime;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(71, 285);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(114, 30);
-            this.iconButton1.TabIndex = 104;
-            this.iconButton1.Text = "Seleccionar";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.BtnSelect.BackColor = System.Drawing.Color.White;
+            this.BtnSelect.FlatAppearance.BorderSize = 0;
+            this.BtnSelect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
+            this.BtnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSelect.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BtnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSelect.ForeColor = System.Drawing.Color.Lime;
+            this.BtnSelect.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.BtnSelect.IconColor = System.Drawing.Color.Lime;
+            this.BtnSelect.IconSize = 30;
+            this.BtnSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSelect.Location = new System.Drawing.Point(443, 291);
+            this.BtnSelect.Name = "BtnSelect";
+            this.BtnSelect.Rotation = 0D;
+            this.BtnSelect.Size = new System.Drawing.Size(114, 30);
+            this.BtnSelect.TabIndex = 104;
+            this.BtnSelect.Text = "Seleccionar";
+            this.BtnSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSelect.UseVisualStyleBackColor = false;
+            this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
-            // dataGridView1
+            // DgvProductsList
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(71, 79);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(443, 183);
-            this.dataGridView1.TabIndex = 103;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Valor Unit.";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Cantidad en bodega";
-            this.Column4.Name = "Column4";
+            this.DgvProductsList.BackgroundColor = System.Drawing.Color.White;
+            this.DgvProductsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvProductsList.Location = new System.Drawing.Point(34, 79);
+            this.DgvProductsList.Name = "DgvProductsList";
+            this.DgvProductsList.Size = new System.Drawing.Size(523, 183);
+            this.DgvProductsList.TabIndex = 103;
+            this.DgvProductsList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductsList_CellContentClick);
             // 
             // label13
             // 
@@ -144,7 +117,7 @@
             this.label13.BackColor = System.Drawing.Color.White;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(67, 40);
+            this.label13.Location = new System.Drawing.Point(30, 32);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(181, 24);
             this.label13.TabIndex = 102;
@@ -165,7 +138,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CerrarBtn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProductsList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -174,12 +147,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox CerrarBtn;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private FontAwesome.Sharp.IconButton BtnSelect;
+        private System.Windows.Forms.DataGridView DgvProductsList;
         private System.Windows.Forms.Label label13;
     }
 }

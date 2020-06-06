@@ -76,3 +76,95 @@ CREATE PROC validate_user
 AS
 		SELECT * FROM Administrator WHERE userName = @userName AND passwordName = @passwordName;
 GO
+
+---------------------------------------------------------------------
+
+
+CREATE TABLE Invoice
+(
+	Invoice_ID INT NOT NULL, 
+	SaleDate DATE NOT NULL, 
+	DueDate DATE NOT NULL,
+	InvoiceType NVARCHAR(7) NULL,
+	Cedula NVARCHAR(11) NOT NULL,
+	SubTotal DECIMAL DEFAULT 0,
+	Total_IVA DECIMAL DEFAULT 0, 
+	Total Decimal DEFAULT 0
+);
+
+
+CREATE PROC insert_invoice
+
+	@Invoice_ID INT,
+	@SaleDate DATE, 
+	@DueDate DATE,
+	@InvoiceType NVARCHAR(7),
+	@Cedula NVARCHAR(11),
+	@SubTotal DECIMAL,
+	@Total_IVA DECIMAL, 
+	@Total DECIMAL
+	
+AS
+	INSERT INTO Invoice(Invoice_ID, SaleDate, DueDate,InvoiceType, Cedula, SubTotal, Total_IVA, Total) 
+				VALUES (@Invoice_ID, @SaleDate, @DueDate,@InvoiceType, @Cedula, @SubTotal, @Total_IVA, @Total);
+GO
+
+
+
+CREATE TABLE InvoiceDetail
+(
+	Quantity FLOAT NOT NULL, 
+	Discount FLOAT DEFAULT 0,
+	IVA DECIMAL DEFAULT 0,
+	product_ID NVARCHAR(3) NOT NULL,
+	Invoice_ID INT NOT NULL,
+	TolalDetail DECIMAL DEFAULT 0
+);
+
+CREATE PROC insert_InvoiceDetail
+
+	@Quantity FLOAT,
+	@Discount FLOAT,
+	@IVA DECIMAL,
+	@product_ID NVARCHAR(3),
+	@Invoice_ID INT,
+	@TolalDetail DECIMAL
+
+	
+AS
+
+ DECLARE @InvoiceType NVARCHAR(7)
+
+	INSERT INTO InvoiceDetail(Quantity,Discount,IVA,product_ID,Invoice_ID,TolalDetail)
+				  VALUES(@Quantity, @Discount, @IVA, @product_ID, @Invoice_ID, @TolalDetail);
+
+  EXEC @InvoiceType = returnInvoiceType @Invoice_ID
+
+  EXEC modify_warehouse_quantity @Quantity,@InvoiceType,@product_ID
+    
+GO
+
+DROP PROC insert_InvoiceDetail;
+
+CREATE FUNCTION returnInvoiceType(@InvoiceID INT)
+RETURNS NVARCHAR
+AS
+BEGIN
+ DECLARE @invoiceType NVARCHAR(7)
+ SET @invoiceType = (SELECT InvoiceType FROM Invoice WHERE Invoice_ID  = @InvoiceID)
+
+RETURN @invoiceType
+END;
+
+CREATE PROC modify_warehouse_quantity
+@Quantity FLOAT,
+@InvoiceType NVARCHAR,
+@product_ID	 NVARCHAR(3)
+AS
+  IF  @InvoiceType = 'Compra' 
+	UPDATE Products SET Quantity = (Quantity - @Quantity) WHERE ID = @product_ID
+	
+ ELSE
+	UPDATE Products SET Quantity = (Quantity +  @Quantity) WHERE ID = @product_ID
+ 
+GO

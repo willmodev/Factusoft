@@ -11,18 +11,19 @@ namespace Entity
         public string Invoice_ID { get; set; }
         public Product Product { get; set; }
         public decimal Quantity { get; set; }
-        public decimal Amount { get; set; }
+        public decimal TolalDetail { get; set; }
         public decimal Discount { get; set; }
+        public decimal IVA { get; set; }
 
-        public void CalculateAmound()
+        public void CalculateTotalDetail()
         {
-            Amount = (Quantity * Product.UnitValue) * (1 - (Discount/100));
+            TolalDetail = (Quantity * Product.UnitValue) * (1 - (Discount/100));
         }
 
 
         public decimal CalculateIva()
         {
-            return Amount * (Product.IVA  / 100) ;
+            return TolalDetail * (Product.IVA  / 100) ;
         }
 
     }

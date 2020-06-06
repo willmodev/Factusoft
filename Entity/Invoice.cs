@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entity
 {
@@ -12,6 +10,7 @@ namespace Entity
         public DateTime SaleDate { get; set; }
         public DateTime DueData { get; set; }
         public Client Client { get; set; }
+        public string  InvoiceType { get;set; }
         public decimal Subtotal { get; set; }
         public decimal TotalIva { get; set; }
         public decimal Total { get; set; }
@@ -23,21 +22,22 @@ namespace Entity
             InvoiceDetails = new List<InvoiceDetail>();
         }
 
-        public void AgregarDetalleFactura(string detail_id, Product product, int quantity, decimal discount)
+        public void AgregarDetalleFactura(string invoice_id, Product product, int quantity, decimal discount, decimal IVA)
         {
             InvoiceDetail invoicedetail = new InvoiceDetail();
-            invoicedetail.Invoice_ID =detail_id;
+            invoicedetail.Invoice_ID = invoice_id;
             invoicedetail.Product = product;
             invoicedetail.Quantity= quantity;
             invoicedetail.Discount = discount;
-            invoicedetail.CalculateAmound();
+            invoicedetail.IVA = product.IVA;
+            invoicedetail.CalculateTotalDetail();
             invoicedetail.CalculateIva();
             InvoiceDetails.Add(invoicedetail);
         }
 
         public void CalculateSubtotal()
         {
-            Subtotal = InvoiceDetails.Sum(d => d.Amount);
+            Subtotal = InvoiceDetails.Sum(d => d.TolalDetail);
         }
 
         public void CalcularTotalIva()

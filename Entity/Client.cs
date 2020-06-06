@@ -21,7 +21,13 @@ namespace Entity
         public string Neighborhood { get; set; }
         public string City { get; set; }
 
-        public decimal Age { get { return (((DateTime.Now - DateOfBorn).Days) / 365); } }
+        private  int age;
+        public int Age
+        { 
+            get { return age = (((DateTime.Now - DateOfBorn).Days) / 365); }
+            set { age = value; }
+        
+        }
         
 
     }

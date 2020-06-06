@@ -94,7 +94,6 @@
             this.TxtUser.Name = "TxtUser";
             this.TxtUser.Size = new System.Drawing.Size(306, 20);
             this.TxtUser.TabIndex = 1;
-            this.TxtUser.TabStop = false;
             this.TxtUser.Text = "user";
             this.TxtUser.Enter += new System.EventHandler(this.textBox1_Enter);
             this.TxtUser.Leave += new System.EventHandler(this.TxtUser_Leave);
@@ -107,7 +106,7 @@
             this.checkBox1.Location = new System.Drawing.Point(34, 319);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(123, 21);
-            this.checkBox1.TabIndex = 5;
+            this.checkBox1.TabIndex = 3;
             this.checkBox1.Text = "Remember me";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -121,7 +120,7 @@
             this.BtnLogin.Location = new System.Drawing.Point(34, 373);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(305, 45);
-            this.BtnLogin.TabIndex = 6;
+            this.BtnLogin.TabIndex = 4;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = false;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
@@ -135,13 +134,14 @@
             this.linkLabel1.Location = new System.Drawing.Point(118, 479);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(128, 17);
-            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Forgot  password?";
             // 
             // lienaPnl
             // 
             this.lienaPnl.BackColor = System.Drawing.Color.White;
+            this.lienaPnl.Enabled = false;
             this.lienaPnl.Location = new System.Drawing.Point(34, 468);
             this.lienaPnl.Name = "lienaPnl";
             this.lienaPnl.Size = new System.Drawing.Size(305, 1);
@@ -188,7 +188,7 @@
             this.TxtPassword.Location = new System.Drawing.Point(33, 252);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(306, 20);
-            this.TxtPassword.TabIndex = 10;
+            this.TxtPassword.TabIndex = 2;
             this.TxtPassword.Text = "password";
             this.TxtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
             this.TxtPassword.Leave += new System.EventHandler(this.TxtPassword_Leave);
