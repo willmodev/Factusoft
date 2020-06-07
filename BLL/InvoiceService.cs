@@ -42,6 +42,30 @@ namespace BLL
             finally { connectionManager.CloseConnection(); }
         }
 
+        public InvoiceSearchAnswer SearchInvoice()
+        {
+            InvoiceSearchAnswer answer = new InvoiceSearchAnswer();
+            try
+            {
+                connectionManager.OpenConnection();
+                answer.Error = false;
+                answer.Invoice = invoiceRepository.SearchInvoice();
+                answer.Message = answer.Invoice != null ? "Factura encontrada" : "La factura no existe";
+
+                return answer;
+            }
+            catch (Exception e)
+            {
+                answer.Error = true;
+                answer.Message = $"Error de aplicacion: {e.Message}";
+                answer.Invoice = null;
+
+                return answer;
+            }
+            finally { connectionManager.CloseConnection(); }
+
+        }
+
         public InvoiceCountAnswer InvoiceCount
         {
             get
@@ -54,7 +78,6 @@ namespace BLL
                     answer.Count = invoiceRepository.CountInvoice;
 
                     return answer;
-
                 }
                 catch (Exception e)
                 {
@@ -79,5 +102,12 @@ namespace BLL
     {
         public bool Error { get; set; }
         public string Message { get; set; }
+    }
+
+    public class InvoiceSearchAnswer
+    {
+        public bool Error { get; set; }
+        public string Message { get; set; }
+        public Invoice Invoice { get; set; }
     }
 }

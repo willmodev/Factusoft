@@ -15,14 +15,14 @@ namespace Entity
         public DateTime SaleDate { get; set; }
         public DateTime DueData { get; set; }
 
-        public List<InvoiceDetail> InvoiceDetails;
+        public IList<InvoiceDetail> InvoiceDetails;
 
         public Invoice()
         {
             InvoiceDetails = new List<InvoiceDetail>();
         }
 
-        public void AgregarDetalleFactura(int invoice_id, Product product, decimal quantity, decimal discount, decimal IVA)
+        public void AgregarDetalleFactura(int invoice_id, Product product, float quantity, float discount, decimal IVA)
         {
             InvoiceDetail invoicedetail = new InvoiceDetail();
             invoicedetail.Invoice_ID = invoice_id;

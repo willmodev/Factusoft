@@ -22,7 +22,7 @@ namespace BLL
         }
         public SaveClientAnswer Save(Client client, Administrator admin)
         {
-             Email email = new Email();
+            Email email = new Email();
             SaveClientAnswer answer = new SaveClientAnswer();
 
              string messageEmail = string.Empty;

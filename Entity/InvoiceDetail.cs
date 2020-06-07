@@ -12,15 +12,16 @@ namespace Entity
         public Product Product { get; set; }
         public string NameProduct {get;set;}
         public decimal UnitValue { get; set; }
-        public decimal Quantity { get; set; }
-        public decimal Discount { get; set; }
+        public float Quantity { get; set; }
+        public float Discount { get; set; }
         public decimal IVA { get; set; }
         public decimal TolalDetail { get; set; }
 
 
         public void CalculateTotalDetail()
         {
-            TolalDetail = Decimal.Round((Quantity * Product.UnitValue) * (1 - (Discount/100)), 1);
+            
+            TolalDetail = Decimal.Round((((decimal)Quantity) * Product.UnitValue) * (1 - ((decimal)Discount/100)), 1);
         }
 
 

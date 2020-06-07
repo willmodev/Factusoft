@@ -36,17 +36,19 @@ namespace PulsacionesGUI
         
         private void BtnVerlista_Click(object sender, EventArgs e)
         {
-
-            ListaProductosFrm listaProductosFrm = new ListaProductosFrm();
-            this.AddOwnedForm(listaProductosFrm);
-            listaProductosFrm.ShowDialog();
-            
+            if(client != null)
+            {
+                ListaProductosFrm listaProductosFrm = new ListaProductosFrm();
+                this.AddOwnedForm(listaProductosFrm);
+                listaProductosFrm.ShowDialog();
+            }
+            else
+                MessageBox.Show("Primero debe agragarun cliente a la factura!");
         }
 
         private void  AssingInvoiceNumber()
         {
             InvoiceCountAnswer answer = invoiceService.InvoiceCount;
-
             LblInvoiceNumber.Text = (++answer.Count).ToString("0000");
             if (answer.Error) MessageBox.Show(answer.Message);
 
@@ -75,36 +77,39 @@ namespace PulsacionesGUI
        
         private void BtnSearchProduct_Click(object sender, EventArgs e)
         {
-
-            if (TxtID.Text != "")
+            if (client != null)
             {
-                SearchProductAnswer answer = productService.Search(TxtID.Text);
-                Product product = answer.Product;
+                if (TxtID.Text != "")
+                {
+                    SearchProductAnswer answer = productService.Search(TxtID.Text);
+                    Product product = answer.Product;
 
-                TxtID.Text = product.ID;
-                TxtName.Text = product.Name;
-                TxtUnitMeasure.Text = product.UnitMeasure;
-                TxtWarehouseQuantity.Text = product.Quantity.ToString();
-                TxtUnitValue.Text = product.UnitValue.ToString();
-                TxtIVA.Text = product.IVA.ToString();
+                    TxtID.Text = product.ID;
+                    TxtName.Text = product.Name;
+                    TxtUnitMeasure.Text = product.UnitMeasure;
+                    TxtWarehouseQuantity.Text = product.Quantity.ToString();
+                    TxtUnitValue.Text = product.UnitValue.ToString();
+                    TxtIVA.Text = product.IVA.ToString();
 
-                TxtQuantity.Text = "0";
-                TxtDiscount.Text = "0";
+                    TxtQuantity.Text = "0";
+                    TxtDiscount.Text = "0";
 
 
-                MessageBox.Show(answer.Message);
+                    MessageBox.Show(answer.Message);
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingrasar un codigo de producto para realizar la busqueda!");
+                    TxtID.Focus();
+                }
             }
             else
-            {
-                MessageBox.Show("Debe ingrasar un codigo de producto para realizar la busqueda!");
-                TxtID.Focus();
-            }
+                MessageBox.Show("Primero debe agragarun cliente a la factura!");
+           
                
             
 
         }
-
-       
 
         private void BtnAddClient_Click(object sender, EventArgs e)
         {
@@ -157,8 +162,8 @@ namespace PulsacionesGUI
             (
                 int.Parse(LblInvoiceNumber.Text),
                 product,
-                decimal.Parse(TxtQuantity.Text),
-                decimal.Parse(TxtDiscount.Text),
+                float.Parse(TxtQuantity.Text),
+                float.Parse(TxtDiscount.Text),
                 product.IVA
             );
 
@@ -234,7 +239,10 @@ namespace PulsacionesGUI
             SaveInvoiceAnswer answer = invoiceService.SaveInvoice(invoice);
 
             MessageBox.Show(answer.Message);
-
+            if(!answer.Error)
+            {
+                GeneratePDF();
+            }
             ClearComponents();
             AssingInvoiceNumber();
 
@@ -242,6 +250,30 @@ namespace PulsacionesGUI
 
         }
 
+        public void GeneratePDF()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            InvoiceSearchAnswer answer = invoiceService.SearchInvoice();
+            MessageBox.Show(answer.Message);
+
+            saveFileDialog.Title = "Guardar Factura";
+            saveFileDialog.InitialDirectory = @"D:\University\Programacion III";
+            saveFileDialog.DefaultExt = "pdf";
+
+            string fileName = "";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                fileName = saveFileDialog.FileName;
+            if (fileName != "" && answer.Invoice != null)
+            {
+                string message = productService.GeneratePDF(answer.Invoice, fileName);
+                MessageBox.Show(message, "Generar PDF", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se especifico una ruta o no hay datos para generar el reporte", "Generar Pdf", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
         private void ClearComponents()
         {
             DgvTableInvoiceDetail.DataSource = null;

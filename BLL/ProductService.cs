@@ -113,13 +113,13 @@ namespace BLL
             finally { connectionManager.CloseConnection(); }
         }
 
-        public string GeneratePDF(IList<Product> products, string fileName)
+        public string GeneratePDF(Invoice invoice, string fileName)
         {
             DocumentPDF documentPDF = new DocumentPDF();
 
             try
             {
-                documentPDF.savePDF(products,fileName);
+                documentPDF.savePDF(invoice, fileName);
                 return "Se genero el PDF corectamente!";
             }
             catch (Exception e)
