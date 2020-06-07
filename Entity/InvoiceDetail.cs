@@ -11,6 +11,7 @@ namespace Entity
         public int Invoice_ID { get; set; }
         public Product Product { get; set; }
         public string NameProduct {get;set;}
+        public decimal UnitValue { get; set; }
         public decimal Quantity { get; set; }
         public decimal Discount { get; set; }
         public decimal IVA { get; set; }
@@ -19,7 +20,7 @@ namespace Entity
 
         public void CalculateTotalDetail()
         {
-            TolalDetail = (Quantity * Product.UnitValue) * (1 - (Discount/100));
+            TolalDetail = Decimal.Round((Quantity * Product.UnitValue) * (1 - (Discount/100)), 1);
         }
 
 

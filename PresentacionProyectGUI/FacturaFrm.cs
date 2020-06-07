@@ -20,7 +20,7 @@ namespace PulsacionesGUI
         private readonly ClientService clientService;
         private Invoice invoice;
         private Product product;
-        private Client client;
+        private Client client = null;
         public FacturaFrm()
         {
             InitializeComponent();
@@ -29,7 +29,6 @@ namespace PulsacionesGUI
             productService = new ProductService(connectionString);
             clientService = new ClientService(connectionString);
             invoice = new Invoice();
-            client = new Client();
             AssingInvoiceNumber();
         }
 
@@ -137,36 +136,44 @@ namespace PulsacionesGUI
             float quantity = float.Parse(TxtQuantity.Text);
             float wareHouseQuantity = float.Parse(TxtWarehouseQuantity.Text);
 
-            if(CmbInvoiceType.Text == "Venta" && (quantity <= wareHouseQuantity))
+            if(CmbInvoiceType.Text == "Venta")
             {
-                MapOutProduct();
-                invoice.AgregarDetalleFactura
-                (
-                    int.Parse(LblInvoiceNumber.Text),
-                    product,
-                    decimal.Parse(TxtQuantity.Text),
-                    decimal.Parse(TxtDiscount.Text),
-                    product.IVA
-                );
-
-                FillTableInvoiceDetail();
-
-                invoice.CalculateSubtotal();
-                invoice.CalcularTotalIva();
-                invoice.CalculaTeTotal();
-
-                LblSubTotal.Text = $"{Decimal.Round(invoice.Subtotal, 1)} ";
-                LblIVA.Text = $"{Decimal.Round(invoice.TotalIva, 1)}";
-                LblTotalInvoice.Text = $"{Decimal.Round(invoice.Total, 1)}";
-
-                MessageBox.Show("Detalle agregado a la factura!");
-                ClearTextBoxes();
+                if (quantity <= wareHouseQuantity)
+                    AddInvoiceDetail();
+                else
+                    MessageBox.Show("La cantidad a vender es mayor que la cantidad que tiene en bodega");
             }
             else
             {
-                MessageBox.Show("La cantidad a vender es mayor que la cantidad que tiene en bodega");
+                AddInvoiceDetail();
             }
           
+        }
+
+        private void AddInvoiceDetail()
+        {
+            MapOutProduct();
+            invoice.AgregarDetalleFactura
+            (
+                int.Parse(LblInvoiceNumber.Text),
+                product,
+                decimal.Parse(TxtQuantity.Text),
+                decimal.Parse(TxtDiscount.Text),
+                product.IVA
+            );
+
+            FillTableInvoiceDetail();
+
+            invoice.CalculateSubtotal();
+            invoice.CalcularTotalIva();
+            invoice.CalculaTeTotal();
+
+            LblSubTotal.Text = $"{Decimal.Round(invoice.Subtotal, 1)} ";
+            LblIVA.Text = $"{Decimal.Round(invoice.TotalIva, 1)}";
+            LblTotalInvoice.Text = $"{Decimal.Round(invoice.Total, 1)}";
+
+            MessageBox.Show("Detalle agregado a la factura!");
+            ClearTextBoxes();
         }
 
         public void FillTableInvoiceDetail()
@@ -184,9 +191,10 @@ namespace PulsacionesGUI
             if(TxtCedulaClient.Text != "")
             {
                 SearchClienttAnswer answer = clientService.Search(TxtCedulaClient.Text);
+                client = new Client();
                 client = answer.Client;
 
-                if(answer.Client != null)
+                if(client != null)
                 {
                     TxtCedulaClient.Text = client.Cedula;
                     TxtNameClient.Text = client.FirstName;
@@ -227,13 +235,34 @@ namespace PulsacionesGUI
 
             MessageBox.Show(answer.Message);
 
-            //if (!answer.Error)
-            //{
-            //    MessageBox.Show("No hay error");
-            //    PrincipalFrm principal = new PrincipalFrm();
-            //    principal.AbrirFormHija(new FacturaFrm());
-            //}
+            ClearComponents();
+            AssingInvoiceNumber();
 
+
+
+        }
+
+        private void ClearComponents()
+        {
+            DgvTableInvoiceDetail.DataSource = null;
+            DgvTableInvoiceDetail.Visible = false;
+            CmbInvoiceType.Text = "";
+            LblIVA.Text = "";
+            LblSubTotal.Text = "";
+            LblTotalInvoice.Text = "";
+            client = null;
+            product = null;
+            invoice = new Invoice();
+
+            foreach (var item in this.Controls)
+            {
+                if(item.GetType().Equals(typeof(TextBox)))
+                {
+                    TextBox textBox = item as TextBox;
+                    textBox.Text = string.Empty;
+                }
+            }
+            
         }
 
        

@@ -28,6 +28,7 @@ namespace Entity
             invoicedetail.Invoice_ID = invoice_id;
             invoicedetail.Product = product;
             invoicedetail.NameProduct = product.Name;
+            invoicedetail.UnitValue = product.UnitValue;
             invoicedetail.Quantity= quantity;
             invoicedetail.Discount = discount;
             invoicedetail.IVA = product.IVA;

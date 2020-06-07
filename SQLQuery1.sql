@@ -161,10 +161,10 @@ CREATE PROC modify_warehouse_quantity
 @InvoiceType NVARCHAR,
 @product_ID	 NVARCHAR(3)
 AS
-  IF  @InvoiceType = 'Compra' 
+  IF  @InvoiceType = 'C' 
 	UPDATE Products SET Quantity = (Quantity + @Quantity) WHERE ID = @product_ID
 	
- ELSE
+ ELSE IF  @InvoiceType = 'V' 
 	UPDATE Products SET Quantity = (Quantity -  @Quantity) WHERE ID = @product_ID
  
 GO
