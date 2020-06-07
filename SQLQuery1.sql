@@ -30,7 +30,7 @@ CREATE TABLE Clients
                 Age INT NOT NULL,
                 Telephone NVARCHAR(11) NOT NULL,
                 E_mail NVARCHAR(30) NOT NULL,
-		AddressHome NVARCHAR(10) NOT NULL,
+		AddressHome NVARCHAR(20) NOT NULL,
 		Neighborhood NVARCHAR(15) NOT NULL,
 		City NVARCHAR(15) NOT NULL
 )
@@ -162,9 +162,9 @@ CREATE PROC modify_warehouse_quantity
 @product_ID	 NVARCHAR(3)
 AS
   IF  @InvoiceType = 'Compra' 
-	UPDATE Products SET Quantity = (Quantity - @Quantity) WHERE ID = @product_ID
+	UPDATE Products SET Quantity = (Quantity + @Quantity) WHERE ID = @product_ID
 	
  ELSE
-	UPDATE Products SET Quantity = (Quantity +  @Quantity) WHERE ID = @product_ID
+	UPDATE Products SET Quantity = (Quantity -  @Quantity) WHERE ID = @product_ID
  
 GO

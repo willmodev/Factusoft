@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public  class InvoiceDetail
+    public class InvoiceDetail
     {
-        public string Invoice_ID { get; set; }
+        public int Invoice_ID { get; set; }
         public Product Product { get; set; }
+        public string NameProduct {get;set;}
         public decimal Quantity { get; set; }
-        public decimal TolalDetail { get; set; }
         public decimal Discount { get; set; }
         public decimal IVA { get; set; }
+        public decimal TolalDetail { get; set; }
+
 
         public void CalculateTotalDetail()
         {

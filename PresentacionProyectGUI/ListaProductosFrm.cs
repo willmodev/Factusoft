@@ -62,7 +62,6 @@ namespace PulsacionesGUI
                     facturaFrm.TxtWarehouseQuantity.Text = row.Cells[4].Value.ToString();
                     facturaFrm.TxtIVA.Text = row.Cells[5].Value.ToString();
                     facturaFrm.TxtQuantity.Text = "0";
-                    facturaFrm.TxtTotalDetail.Text = "0";
                     facturaFrm.TxtDiscount.Text = "0";
 
                 }

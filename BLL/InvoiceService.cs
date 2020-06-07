@@ -20,19 +20,24 @@ namespace BLL
         }
 
 
-        public string SaveInvoice(Invoice invoice)
+        public SaveInvoiceAnswer SaveInvoice(Invoice invoice)
         {
+            SaveInvoiceAnswer answer = new SaveInvoiceAnswer();
             try
             {
                 connectionManager.OpenConnection();
+                answer.Error = false;
                 invoiceRepository.SaveInvoice(invoice);
-                return $"Proceso de facturacion Exitoso!";
+                answer.Message =  $"Proceso de facturacion Exitoso!";
 
+                return answer;
             }
             catch (Exception e)
             {
+                answer.Error = true;
+                answer.Message =  $"Error de aplicacion: {e.Message}";
 
-                return $"Error de aplicacion: {e.Message}";
+                return answer;
             }
             finally { connectionManager.CloseConnection(); }
         }
@@ -57,6 +62,7 @@ namespace BLL
                     answer.Message = $"Error al asignar numero de factura: {e.Message}";
                     return answer;
                 }
+                finally { connectionManager.CloseConnection(); }
             }
         }
 
@@ -67,5 +73,11 @@ namespace BLL
         public bool Error { get; set; }
         public string Message { get; set; }
         public int Count { get; set; }
+    }
+
+    public class SaveInvoiceAnswer
+    {
+        public bool Error { get; set; }
+        public string Message { get; set; }
     }
 }

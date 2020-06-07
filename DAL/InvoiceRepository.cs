@@ -23,6 +23,9 @@ namespace DAL
         {
             using (var command = sqlConnection.CreateCommand())
             {
+                SqlTransaction transaction = sqlConnection.BeginTransaction();
+                command.Transaction = transaction;
+
                 command.CommandText = "insert_invoice";
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -36,7 +39,10 @@ namespace DAL
                 command.Parameters.AddWithValue("@Total", invoice.Total);
             
                 command.ExecuteNonQuery();
+                transaction.Commit();
+
                 SaveInvoiceDetail(invoice.InvoiceDetails);
+
                 
             }
         }
@@ -47,8 +53,8 @@ namespace DAL
             {
                 using (var command = sqlConnection.CreateCommand())
                 {
-                   // SqlTransaction transaction = sqlConnection.BeginTransaction();
-                    //command.Transaction = transaction;
+                    SqlTransaction transaction = sqlConnection.BeginTransaction();
+                    command.Transaction = transaction;
 
                     command.CommandText = "insert_InvoiceDetail";
                     command.CommandType = CommandType.StoredProcedure;
@@ -61,6 +67,7 @@ namespace DAL
                     command.Parameters.AddWithValue("@TolalDetail", item.TolalDetail);
 
                     command.ExecuteNonQuery();
+                    transaction.Commit();
                 }
 
             }

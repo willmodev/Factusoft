@@ -50,6 +50,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.DgvTableProducts = new System.Windows.Forms.DataGridView();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTableProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +150,7 @@
             this.BtnSave.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.BtnSave.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
             this.BtnSave.IconSize = 30;
-            this.BtnSave.Location = new System.Drawing.Point(525, 140);
+            this.BtnSave.Location = new System.Drawing.Point(566, 159);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Rotation = 0D;
             this.BtnSave.Size = new System.Drawing.Size(70, 55);
@@ -180,7 +183,7 @@
             this.BtnRemove.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.BtnRemove.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
             this.BtnRemove.IconSize = 30;
-            this.BtnRemove.Location = new System.Drawing.Point(618, 141);
+            this.BtnRemove.Location = new System.Drawing.Point(659, 160);
             this.BtnRemove.Name = "BtnRemove";
             this.BtnRemove.Rotation = 0D;
             this.BtnRemove.Size = new System.Drawing.Size(70, 55);
@@ -205,7 +208,7 @@
             this.BtnModify.IconChar = FontAwesome.Sharp.IconChar.Edit;
             this.BtnModify.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
             this.BtnModify.IconSize = 30;
-            this.BtnModify.Location = new System.Drawing.Point(708, 141);
+            this.BtnModify.Location = new System.Drawing.Point(749, 160);
             this.BtnModify.Name = "BtnModify";
             this.BtnModify.Rotation = 0D;
             this.BtnModify.Size = new System.Drawing.Size(70, 55);
@@ -219,7 +222,7 @@
             // TxtSearch
             // 
             this.TxtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtSearch.Location = new System.Drawing.Point(525, 104);
+            this.TxtSearch.Location = new System.Drawing.Point(566, 104);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(89, 20);
             this.TxtSearch.TabIndex = 73;
@@ -232,7 +235,7 @@
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label5.Location = new System.Drawing.Point(527, 88);
+            this.label5.Location = new System.Drawing.Point(568, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 13);
             this.label5.TabIndex = 74;
@@ -253,7 +256,7 @@
             this.BtnSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
             this.BtnSearch.IconSize = 30;
             this.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSearch.Location = new System.Drawing.Point(642, 96);
+            this.BtnSearch.Location = new System.Drawing.Point(683, 96);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Rotation = 0D;
             this.BtnSearch.Size = new System.Drawing.Size(89, 34);
@@ -345,9 +348,9 @@
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(26, 28);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(104, 24);
+            this.label13.Size = new System.Drawing.Size(198, 24);
             this.label13.TabIndex = 94;
-            this.label13.Text = "Productos";
+            this.label13.Text = "Registrae Productos";
             // 
             // DgvTableProducts
             // 
@@ -376,7 +379,7 @@
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
             this.iconButton1.IconSize = 30;
-            this.iconButton1.Location = new System.Drawing.Point(607, 388);
+            this.iconButton1.Location = new System.Drawing.Point(627, 367);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Rotation = 0D;
             this.iconButton1.Size = new System.Drawing.Size(102, 65);
@@ -386,12 +389,47 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
+            // lineShape1
+            // 
+            this.lineShape1.BorderWidth = 2;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 513;
+            this.lineShape1.X2 = 513;
+            this.lineShape1.Y1 = 76;
+            this.lineShape1.Y2 = 213;
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(860, 512);
+            this.shapeContainer1.TabIndex = 97;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(543, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(174, 24);
+            this.label8.TabIndex = 98;
+            this.label8.Text = "Buscar Productos";
+            // 
             // ProductosFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(860, 512);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.DgvTableProducts);
             this.Controls.Add(this.label13);
@@ -414,6 +452,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtID);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductosFrm";
             this.Text = "RegistrarPersonaFrm";
@@ -446,5 +485,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView DgvTableProducts;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -45,7 +45,7 @@ namespace PulsacionesGUI
             Application.Exit();
         }
 
-        private void AbrirFormHija(object formHija)
+        public  void AbrirFormHija(object formHija)
         {
             if (this.PanelContenedorPnl.Controls.Count > 0)
                 this.PanelContenedorPnl.Controls.RemoveAt(0);

@@ -6,14 +6,14 @@ namespace Entity
 {
     public class Invoice
     {
-        public string Invoice_ID { get; set; }
-        public DateTime SaleDate { get; set; }
-        public DateTime DueData { get; set; }
+        public int Invoice_ID { get; set; }
         public Client Client { get; set; }
         public string  InvoiceType { get;set; }
         public decimal Subtotal { get; set; }
         public decimal TotalIva { get; set; }
         public decimal Total { get; set; }
+        public DateTime SaleDate { get; set; }
+        public DateTime DueData { get; set; }
 
         public List<InvoiceDetail> InvoiceDetails;
 
@@ -22,11 +22,12 @@ namespace Entity
             InvoiceDetails = new List<InvoiceDetail>();
         }
 
-        public void AgregarDetalleFactura(string invoice_id, Product product, int quantity, decimal discount, decimal IVA)
+        public void AgregarDetalleFactura(int invoice_id, Product product, decimal quantity, decimal discount, decimal IVA)
         {
             InvoiceDetail invoicedetail = new InvoiceDetail();
             invoicedetail.Invoice_ID = invoice_id;
             invoicedetail.Product = product;
+            invoicedetail.NameProduct = product.Name;
             invoicedetail.Quantity= quantity;
             invoicedetail.Discount = discount;
             invoicedetail.IVA = product.IVA;

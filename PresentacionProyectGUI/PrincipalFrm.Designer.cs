@@ -36,6 +36,8 @@
             this.MinimizarBtn = new System.Windows.Forms.PictureBox();
             this.CerrarBtn = new System.Windows.Forms.PictureBox();
             this.MenuVerticalPnl = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.gestionFacturaBtn = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.inicioBtn = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -46,8 +48,6 @@
             this.productosBtn = new FontAwesome.Sharp.IconButton();
             this.PanelContenedorPnl = new System.Windows.Forms.Panel();
             this.HoraFechaTimer = new System.Windows.Forms.Timer(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.gestionFacturaBtn = new FontAwesome.Sharp.IconButton();
             this.BarraTituloPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaximizarBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RestaurarBtn)).BeginInit();
@@ -139,6 +139,39 @@
             this.MenuVerticalPnl.Size = new System.Drawing.Size(220, 512);
             this.MenuVerticalPnl.TabIndex = 1;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.panel5.Location = new System.Drawing.Point(0, 355);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 60);
+            this.panel5.TabIndex = 5;
+            // 
+            // gestionFacturaBtn
+            // 
+            this.gestionFacturaBtn.FlatAppearance.BorderSize = 0;
+            this.gestionFacturaBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.gestionFacturaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gestionFacturaBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.gestionFacturaBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gestionFacturaBtn.ForeColor = System.Drawing.Color.White;
+            this.gestionFacturaBtn.IconChar = FontAwesome.Sharp.IconChar.Tractor;
+            this.gestionFacturaBtn.IconColor = System.Drawing.Color.White;
+            this.gestionFacturaBtn.IconSize = 32;
+            this.gestionFacturaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gestionFacturaBtn.Location = new System.Drawing.Point(0, 355);
+            this.gestionFacturaBtn.Name = "gestionFacturaBtn";
+            this.gestionFacturaBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.gestionFacturaBtn.Rotation = 0D;
+            this.gestionFacturaBtn.Size = new System.Drawing.Size(220, 60);
+            this.gestionFacturaBtn.TabIndex = 6;
+            this.gestionFacturaBtn.TabStop = false;
+            this.gestionFacturaBtn.Text = "Gestion Facturas";
+            this.gestionFacturaBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gestionFacturaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.gestionFacturaBtn.UseVisualStyleBackColor = true;
+            this.gestionFacturaBtn.Click += new System.EventHandler(this.GestionFacturaBtn_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
@@ -166,6 +199,7 @@
             this.inicioBtn.Rotation = 0D;
             this.inicioBtn.Size = new System.Drawing.Size(220, 60);
             this.inicioBtn.TabIndex = 4;
+            this.inicioBtn.TabStop = false;
             this.inicioBtn.Text = "Inicio";
             this.inicioBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.inicioBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -214,6 +248,7 @@
             this.facturarBtn.Rotation = 0D;
             this.facturarBtn.Size = new System.Drawing.Size(220, 60);
             this.facturarBtn.TabIndex = 2;
+            this.facturarBtn.TabStop = false;
             this.facturarBtn.Text = "Facturar";
             this.facturarBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.facturarBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -238,6 +273,7 @@
             this.clientesBtn.Rotation = 0D;
             this.clientesBtn.Size = new System.Drawing.Size(220, 60);
             this.clientesBtn.TabIndex = 1;
+            this.clientesBtn.TabStop = false;
             this.clientesBtn.Text = "Clientes";
             this.clientesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.clientesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -263,6 +299,7 @@
             this.productosBtn.Rotation = 0D;
             this.productosBtn.Size = new System.Drawing.Size(220, 60);
             this.productosBtn.TabIndex = 0;
+            this.productosBtn.TabStop = false;
             this.productosBtn.Text = "Productos";
             this.productosBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.productosBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -281,38 +318,6 @@
             // HoraFechaTimer
             // 
             this.HoraFechaTimer.Enabled = true;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.panel5.Location = new System.Drawing.Point(0, 355);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(10, 60);
-            this.panel5.TabIndex = 5;
-            // 
-            // gestionFacturaBtn
-            // 
-            this.gestionFacturaBtn.FlatAppearance.BorderSize = 0;
-            this.gestionFacturaBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.gestionFacturaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gestionFacturaBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.gestionFacturaBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gestionFacturaBtn.ForeColor = System.Drawing.Color.White;
-            this.gestionFacturaBtn.IconChar = FontAwesome.Sharp.IconChar.Tractor;
-            this.gestionFacturaBtn.IconColor = System.Drawing.Color.White;
-            this.gestionFacturaBtn.IconSize = 32;
-            this.gestionFacturaBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gestionFacturaBtn.Location = new System.Drawing.Point(0, 355);
-            this.gestionFacturaBtn.Name = "gestionFacturaBtn";
-            this.gestionFacturaBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.gestionFacturaBtn.Rotation = 0D;
-            this.gestionFacturaBtn.Size = new System.Drawing.Size(220, 60);
-            this.gestionFacturaBtn.TabIndex = 6;
-            this.gestionFacturaBtn.Text = "Gestion Facturas";
-            this.gestionFacturaBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gestionFacturaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.gestionFacturaBtn.UseVisualStyleBackColor = true;
-            this.gestionFacturaBtn.Click += new System.EventHandler(this.GestionFacturaBtn_Click);
             // 
             // PrincipalFrm
             // 
