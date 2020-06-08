@@ -278,6 +278,7 @@
             this.BtnEliminarProducto.Text = "Eliminar";
             this.BtnEliminarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnEliminarProducto.UseVisualStyleBackColor = false;
+            this.BtnEliminarProducto.Click += new System.EventHandler(this.BtnEliminarProducto_Click);
             // 
             // LblTotalInvoice
             // 
@@ -589,6 +590,7 @@
             this.DgvTableInvoiceDetail.TabIndex = 133;
             this.DgvTableInvoiceDetail.TabStop = false;
             this.DgvTableInvoiceDetail.Visible = false;
+            this.DgvTableInvoiceDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTableInvoiceDetail_CellClick);
             // 
             // label3
             // 

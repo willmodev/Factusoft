@@ -45,7 +45,7 @@ namespace Infrastructure
         {
             
             PdfPTable pdfPTable = new PdfPTable(7);
-            float[] widths = new float[] { 30f, 45f, 80f, 60f, 55f, 30f, 35f };
+            float[] widths = new float[] { 30f, 40f, 90f, 55f, 32f, 30f, 35f };
             pdfPTable.SetWidths(widths);
 
             var MyFont = FontFactory.GetFont("Arial", 12, Font.BOLD);
@@ -53,7 +53,7 @@ namespace Infrastructure
             pdfPTable.AddCell(new Paragraph("Unidad", MyFont));
             pdfPTable.AddCell(new Paragraph("Descripcion", MyFont));
             pdfPTable.AddCell(new Paragraph("Valor Unit", MyFont));
-            pdfPTable.AddCell(new Paragraph("Descuento", MyFont));
+            pdfPTable.AddCell(new Paragraph("Desc", MyFont));
             pdfPTable.AddCell(new Paragraph("IVA", MyFont));
             pdfPTable.AddCell(new Paragraph("Total",MyFont));
 

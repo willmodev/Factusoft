@@ -36,7 +36,7 @@ namespace PulsacionesGUI
         
         private void BtnVerlista_Click(object sender, EventArgs e)
         {
-            if(client != null)
+            if(invoice.Client != null)
             {
                 ListaProductosFrm listaProductosFrm = new ListaProductosFrm();
                 this.AddOwnedForm(listaProductosFrm);
@@ -77,23 +77,25 @@ namespace PulsacionesGUI
        
         private void BtnSearchProduct_Click(object sender, EventArgs e)
         {
-            if (client != null)
+            if (invoice.Client != null)
             {
                 if (TxtID.Text != "")
                 {
                     SearchProductAnswer answer = productService.Search(TxtID.Text);
                     Product product = answer.Product;
 
-                    TxtID.Text = product.ID;
-                    TxtName.Text = product.Name;
-                    TxtUnitMeasure.Text = product.UnitMeasure;
-                    TxtWarehouseQuantity.Text = product.Quantity.ToString();
-                    TxtUnitValue.Text = product.UnitValue.ToString();
-                    TxtIVA.Text = product.IVA.ToString();
+                    if (answer.Product != null)
+                    {
+                        TxtID.Text = product.ID;
+                        TxtName.Text = product.Name;
+                        TxtUnitMeasure.Text = product.UnitMeasure;
+                        TxtWarehouseQuantity.Text = product.Quantity.ToString();
+                        TxtUnitValue.Text = product.UnitValue.ToString();
+                        TxtIVA.Text = product.IVA.ToString();
 
-                    TxtQuantity.Text = "0";
-                    TxtDiscount.Text = "0";
-
+                        TxtQuantity.Text = "0";
+                        TxtDiscount.Text = "0";
+                    }
 
                     MessageBox.Show(answer.Message);
                 }
@@ -168,7 +170,17 @@ namespace PulsacionesGUI
             );
 
             FillTableInvoiceDetail();
+            CalculateTotals();
 
+
+
+
+            MessageBox.Show("Detalle agregado a la factura!");
+            ClearTextBoxes();
+        }
+
+        public void CalculateTotals()
+        {
             invoice.CalculateSubtotal();
             invoice.CalcularTotalIva();
             invoice.CalculaTeTotal();
@@ -176,9 +188,6 @@ namespace PulsacionesGUI
             LblSubTotal.Text = $"{Decimal.Round(invoice.Subtotal, 1)} ";
             LblIVA.Text = $"{Decimal.Round(invoice.TotalIva, 1)}";
             LblTotalInvoice.Text = $"{Decimal.Round(invoice.Total, 1)}";
-
-            MessageBox.Show("Detalle agregado a la factura!");
-            ClearTextBoxes();
         }
 
         public void FillTableInvoiceDetail()
@@ -233,18 +242,25 @@ namespace PulsacionesGUI
 
         private void BtnCommitInvoice_Click(object sender, EventArgs e)
         {
-            invoice.SaleDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            invoice.DueData = DateTime.Parse(invoice.SaleDate.AddMonths(2).ToShortDateString());
 
-            SaveInvoiceAnswer answer = invoiceService.SaveInvoice(invoice);
-
-            MessageBox.Show(answer.Message);
-            if(!answer.Error)
+            if (invoice.InvoiceDetails.Count > 0)
             {
-                GeneratePDF();
+                invoice.SaleDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                invoice.DueData = DateTime.Parse(invoice.SaleDate.AddMonths(2).ToShortDateString());
+
+                SaveInvoiceAnswer answer = invoiceService.SaveInvoice(invoice);
+
+                MessageBox.Show(answer.Message);
+                if (!answer.Error)
+                {
+                    GeneratePDF();
+                }
+                ClearComponents();
+                AssingInvoiceNumber();
             }
-            ClearComponents();
-            AssingInvoiceNumber();
+            else
+                MessageBox.Show("Accion invalida, la factura se encuentra vacia!");
+           
 
 
 
@@ -297,6 +313,18 @@ namespace PulsacionesGUI
             
         }
 
-       
+        private void BtnEliminarProducto_Click(object sender, EventArgs e)
+        {
+
+            invoice.InvoiceDetails.RemoveAt(CellValue);
+            FillTableInvoiceDetail();
+            CalculateTotals();
+
+        }
+        int CellValue = 0;
+        private void DgvTableInvoiceDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CellValue = DgvTableInvoiceDetail.CurrentCell.RowIndex;
+        }
     }
 }
