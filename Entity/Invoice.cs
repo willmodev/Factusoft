@@ -22,18 +22,10 @@ namespace Entity
             InvoiceDetails = new List<InvoiceDetail>();
         }
 
-        public void AgregarDetalleFactura(int invoice_id, Product product, float quantity, float discount, decimal IVA)
+        public void AgregarDetalleFactura(Product product, float quantity, float discount)
         {
-            InvoiceDetail invoicedetail = new InvoiceDetail();
-            invoicedetail.Invoice_ID = invoice_id;
-            invoicedetail.Product = product;
-            invoicedetail.NameProduct = product.Name;
-            invoicedetail.UnitValue = product.UnitValue;
-            invoicedetail.Quantity= quantity;
-            invoicedetail.Discount = discount;
-            invoicedetail.IVA = product.IVA;
-            invoicedetail.CalculateTotalDetail();
-            invoicedetail.CalculateIva();
+            InvoiceDetail invoicedetail = new InvoiceDetail(product, quantity,discount);
+            invoicedetail.Invoice_ID = this.Invoice_ID;
             InvoiceDetails.Add(invoicedetail);
         }
 

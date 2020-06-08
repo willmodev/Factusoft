@@ -49,7 +49,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.DgvTableProducts = new System.Windows.Forms.DataGridView();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.label8 = new System.Windows.Forms.Label();
@@ -365,38 +364,14 @@
             this.DgvTableProducts.Visible = false;
             this.DgvTableProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTableProducts_CellContentClick);
             // 
-            // iconButton1
-            // 
-            this.iconButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.Location = new System.Drawing.Point(627, 367);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(102, 65);
-            this.iconButton1.TabIndex = 96;
-            this.iconButton1.Text = "Generar PDF";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
             // lineShape1
             // 
             this.lineShape1.BorderWidth = 2;
             this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 513;
+            this.lineShape1.X1 = 514;
             this.lineShape1.X2 = 513;
-            this.lineShape1.Y1 = 76;
-            this.lineShape1.Y2 = 213;
+            this.lineShape1.Y1 = 61;
+            this.lineShape1.Y2 = 214;
             // 
             // shapeContainer1
             // 
@@ -417,7 +392,7 @@
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(543, 28);
+            this.label8.Location = new System.Drawing.Point(555, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(174, 24);
             this.label8.TabIndex = 98;
@@ -430,7 +405,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(860, 512);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.DgvTableProducts);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label7);
@@ -484,7 +458,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView DgvTableProducts;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private System.Windows.Forms.Label label8;

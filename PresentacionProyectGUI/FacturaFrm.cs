@@ -21,6 +21,7 @@ namespace PulsacionesGUI
         private Invoice invoice;
         private Product product;
         private Client client = null;
+        private IList<InvoiceDetailDTO> invoiceDetailDTOs = new List<InvoiceDetailDTO>();
         public FacturaFrm()
         {
             InitializeComponent();
@@ -55,11 +56,7 @@ namespace PulsacionesGUI
             
         }
 
-        private void BtnSearchClient_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void  MapOutProduct()
         {
             product = new Product();
@@ -160,15 +157,25 @@ namespace PulsacionesGUI
         private void AddInvoiceDetail()
         {
             MapOutProduct();
+            invoice.Invoice_ID = int.Parse(LblInvoiceNumber.Text);
             invoice.AgregarDetalleFactura
             (
-                int.Parse(LblInvoiceNumber.Text),
                 product,
                 float.Parse(TxtQuantity.Text),
-                float.Parse(TxtDiscount.Text),
-                product.IVA
+                float.Parse(TxtDiscount.Text)
+                
             );
 
+            invoiceDetailDTOs.Add(
+
+                invoiceService.MapInvoiceDetailDTO(
+
+                product,
+                float.Parse(TxtQuantity.Text),
+                float.Parse(TxtDiscount.Text)
+                )
+                
+                );
             FillTableInvoiceDetail();
             CalculateTotals();
 
@@ -194,9 +201,9 @@ namespace PulsacionesGUI
         {
             DgvTableInvoiceDetail.Visible = true;
             DgvTableInvoiceDetail.DataSource = null;
-            DgvTableInvoiceDetail.DataSource = invoice.InvoiceDetails;
+            DgvTableInvoiceDetail.DataSource = invoiceDetailDTOs;
             DgvTableInvoiceDetail.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
-            DgvTableInvoiceDetail.Columns[1].Visible = false;
+            //DgvTableInvoiceDetail.Columns[1].Visible = false;
         }
 
         private void BtnSearchClient_Click(object sender, EventArgs e)
@@ -326,5 +333,7 @@ namespace PulsacionesGUI
         {
             CellValue = DgvTableInvoiceDetail.CurrentCell.RowIndex;
         }
+
+       
     }
 }

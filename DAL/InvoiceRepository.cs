@@ -19,12 +19,12 @@ namespace DAL
         }
 
 
-        public void SaveInvoice(Invoice invoice)
+        public void SaveInvoice(Invoice invoice, SqlTransaction sqlTransaction)
         {
             using (var command = sqlConnection.CreateCommand())
             {
-                SqlTransaction transaction = sqlConnection.BeginTransaction();
-                command.Transaction = transaction;
+                //SqlTransaction transaction = sqlConnection.BeginTransaction();
+                command.Transaction = sqlTransaction;
 
                 command.CommandText = "insert_invoice";
                 command.CommandType = CommandType.StoredProcedure;
@@ -39,22 +39,35 @@ namespace DAL
                 command.Parameters.AddWithValue("@Total", invoice.Total);
             
                 command.ExecuteNonQuery();
-                transaction.Commit();
 
-                SaveInvoiceDetail(invoice.InvoiceDetails);
+                
+                //transaction.Commit();
+
+               
 
                 
             }
         }
 
-        public void SaveInvoiceDetail(IList<InvoiceDetail> invoiceDetails)
+        public void SaveTransaction(Invoice invoice)
+        {
+            using (SqlTransaction transaction = sqlConnection.BeginTransaction())
+            {
+                SaveInvoice(invoice, transaction);
+                SaveInvoiceDetail(invoice.InvoiceDetails, transaction);
+                transaction.Commit();
+            }
+
+        }
+
+        public void SaveInvoiceDetail(IList<InvoiceDetail> invoiceDetails, SqlTransaction sqlTransaction)
         {
             foreach (var item in invoiceDetails)
             {
                 using (var command = sqlConnection.CreateCommand())
                 {
-                    SqlTransaction transaction = sqlConnection.BeginTransaction();
-                    command.Transaction = transaction;
+                    //SqlTransaction transaction = sqlConnection.BeginTransaction();
+                    command.Transaction = sqlTransaction;
 
                     command.CommandText = "insert_InvoiceDetail";
                     command.CommandType = CommandType.StoredProcedure;
@@ -67,7 +80,7 @@ namespace DAL
                     command.Parameters.AddWithValue("@TolalDetail", item.TolalDetail);
 
                     command.ExecuteNonQuery();
-                    transaction.Commit();
+                    //transaction.Commit();
                 }
 
             }

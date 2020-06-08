@@ -27,7 +27,7 @@ namespace BLL
             {
                 connectionManager.OpenConnection();
                 answer.Error = false;
-                invoiceRepository.SaveInvoice(invoice);
+                invoiceRepository.SaveTransaction(invoice);
                 answer.Message =  $"Proceso de facturacion Exitoso!";
 
                 return answer;
@@ -63,6 +63,25 @@ namespace BLL
                 return answer;
             }
             finally { connectionManager.CloseConnection(); }
+
+        }
+
+        
+        public InvoiceDetailDTO MapInvoiceDetailDTO(Product product, float quantity,float discount)
+        {
+            InvoiceDetailDTO invoiceDetailDTO = new InvoiceDetailDTO();
+            InvoiceDetail invoiceDetail = new InvoiceDetail(product,quantity,discount);
+
+
+            invoiceDetailDTO.NameProduct = invoiceDetail.Product.Name;
+            invoiceDetailDTO.Quantity = invoiceDetail.Quantity;
+            invoiceDetailDTO.UnitValue = invoiceDetail.Product.UnitValue;
+            invoiceDetailDTO.IVA = invoiceDetail.Product.IVA;
+            invoiceDetailDTO.Discount = invoiceDetail.Discount;
+            invoiceDetailDTO.TolalDetail = invoiceDetail.TolalDetail;
+
+            return invoiceDetailDTO;
+            
 
         }
 
@@ -102,6 +121,16 @@ namespace BLL
     {
         public bool Error { get; set; }
         public string Message { get; set; }
+    }
+
+    public class InvoiceDetailDTO
+    {
+        public string NameProduct { get; set; }
+        public decimal UnitValue { get; set; }
+        public float Quantity { get; set; }
+        public float Discount { get; set; }
+        public decimal IVA { get; set; }
+        public decimal TolalDetail { get; set; }
     }
 
     public class InvoiceSearchAnswer
