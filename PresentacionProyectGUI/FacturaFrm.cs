@@ -22,6 +22,7 @@ namespace PulsacionesGUI
         private Product product;
         private Client client = null;
         private IList<InvoiceDetailDTO> invoiceDetailDTOs = new List<InvoiceDetailDTO>();
+        
         public FacturaFrm()
         {
             InitializeComponent();
@@ -34,18 +35,7 @@ namespace PulsacionesGUI
         }
 
        
-        
-        private void BtnVerlista_Click(object sender, EventArgs e)
-        {
-            if(invoice.Client != null)
-            {
-                ListaProductosFrm listaProductosFrm = new ListaProductosFrm();
-                this.AddOwnedForm(listaProductosFrm);
-                listaProductosFrm.ShowDialog();
-            }
-            else
-                MessageBox.Show("Primero debe agragarun cliente a la factura!");
-        }
+       
 
         private void  AssingInvoiceNumber()
         {
@@ -56,22 +46,73 @@ namespace PulsacionesGUI
             
         }
 
-        
-        private void  MapOutProduct()
+        private void BtnSearchClient_Click(object sender, EventArgs e)
         {
-            product = new Product();
 
-            product.ID = TxtID.Text;
-            product.Name = TxtName.Text;
-            product.UnitValue = decimal.Parse(TxtUnitValue.Text);
-            product.UnitMeasure = TxtUnitMeasure.Text;
-            product.Quantity = float.Parse(TxtWarehouseQuantity.Text);
-            product.IVA = decimal.Parse(TxtIVA.Text);
+            if (TxtCedulaClient.Text != "")
+            {
+                SearchClienttAnswer answer = clientService.Search(TxtCedulaClient.Text);
+                client = new Client();
+                client = answer.Client;
+
+                if (client != null)
+                {
+                    TxtCedulaClient.Text = client.Cedula;
+                    TxtNameClient.Text = client.FirstName;
+                    TxtLastNameClient.Text = client.LastName;
+                }
+
+                MessageBox.Show(answer.Message);
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar la cedula del cliente para realizar la busqueda!");
+                TxtCedulaClient.Focus();
+
+            }
+        }
+
+        private void BtnAddClient_Click(object sender, EventArgs e)
+        {
+            if (CmbInvoiceType.Text != "")
+            {
+                if (client != null)
+                {
+                    invoice.Client = client;
+                    invoice.Invoice_ID = int.Parse(LblInvoiceNumber.Text);
+                    invoice.InvoiceType = CmbInvoiceType.Text;
+                    MessageBox.Show("Ciente agregado a la factura!");
+                }
+                else
+                {
+                    MessageBox.Show("Debe oprimir el boton buscar para realizar la busqueda!");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe Escojer el tipo de factura primero!");
+                CmbInvoiceType.DroppedDown = true;
+            }
+
 
         }
 
 
-       
+
+        private void BtnVerlista_Click(object sender, EventArgs e)
+        {
+            if (invoice.Client != null)
+            {
+                ListaProductosFrm listaProductosFrm = new ListaProductosFrm();
+                this.AddOwnedForm(listaProductosFrm);
+                listaProductosFrm.ShowDialog();
+            }
+            else
+                MessageBox.Show("Primero debe agragarun cliente a la factura!");
+        }
+
+
         private void BtnSearchProduct_Click(object sender, EventArgs e)
         {
             if (invoice.Client != null)
@@ -104,36 +145,9 @@ namespace PulsacionesGUI
             }
             else
                 MessageBox.Show("Primero debe agragarun cliente a la factura!");
-           
-               
-            
 
         }
 
-        private void BtnAddClient_Click(object sender, EventArgs e)
-        {
-            if(CmbInvoiceType.Text != "")
-            {
-                if(client != null)
-                {
-                    invoice.Client = client;
-                    invoice.Invoice_ID = int.Parse(LblInvoiceNumber.Text);
-                    invoice.InvoiceType = CmbInvoiceType.Text;
-                    MessageBox.Show("Ciente agregado a la factura!");
-                }else
-                {
-                     MessageBox.Show("Debe oprimir el boton buscar para realizar la busqueda!");
-                }
-                
-            }
-            else
-            {
-                MessageBox.Show("Debe Escojer el tipo de factura primero!");
-                CmbInvoiceType.DroppedDown = true;
-            }
-           
-            
-        }
 
         private void BtnAddInvoiceDetail_Click(object sender, EventArgs e)
         {
@@ -154,36 +168,38 @@ namespace PulsacionesGUI
           
         }
 
+
+        private void MapOutProduct()
+        {
+            product = new Product();
+
+            product.ID = TxtID.Text;
+            product.Name = TxtName.Text;
+            product.UnitValue = decimal.Parse(TxtUnitValue.Text);
+            product.UnitMeasure = TxtUnitMeasure.Text;
+            product.Quantity = float.Parse(TxtWarehouseQuantity.Text);
+            product.IVA = decimal.Parse(TxtIVA.Text);
+
+        }
+
         private void AddInvoiceDetail()
         {
             MapOutProduct();
-            invoice.Invoice_ID = int.Parse(LblInvoiceNumber.Text);
-            invoice.AgregarDetalleFactura
-            (
-                product,
-                float.Parse(TxtQuantity.Text),
-                float.Parse(TxtDiscount.Text)
-                
-            );
 
-            invoiceDetailDTOs.Add(
-
-                invoiceService.MapInvoiceDetailDTO(
-
-                product,
-                float.Parse(TxtQuantity.Text),
-                float.Parse(TxtDiscount.Text)
-                )
-                
-                );
+            AddInvoiceDetail(product, float.Parse(TxtQuantity.Text), float.Parse(TxtDiscount.Text));
             FillTableInvoiceDetail();
             CalculateTotals();
 
-
-
-
             MessageBox.Show("Detalle agregado a la factura!");
             ClearTextBoxes();
+        }
+
+        public void AddInvoiceDetail(Product product, float quantity, float discount)
+        {
+            invoice.AgregarDetalleFactura(product,quantity,discount);
+            InvoiceDetailDTO invoiceDTO = invoiceService.MapInvoiceDetailDTO(product, quantity, discount);
+
+            invoiceDetailDTOs.Add(invoiceDTO);
         }
 
         public void CalculateTotals()
@@ -203,35 +219,10 @@ namespace PulsacionesGUI
             DgvTableInvoiceDetail.DataSource = null;
             DgvTableInvoiceDetail.DataSource = invoiceDetailDTOs;
             DgvTableInvoiceDetail.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
-            //DgvTableInvoiceDetail.Columns[1].Visible = false;
-        }
-
-        private void BtnSearchClient_Click(object sender, EventArgs e)
-        {
             
-            if(TxtCedulaClient.Text != "")
-            {
-                SearchClienttAnswer answer = clientService.Search(TxtCedulaClient.Text);
-                client = new Client();
-                client = answer.Client;
-
-                if(client != null)
-                {
-                    TxtCedulaClient.Text = client.Cedula;
-                    TxtNameClient.Text = client.FirstName;
-                    TxtLastNameClient.Text = client.LastName;
-                }
-               
-
-                MessageBox.Show(answer.Message);
-            }
-            else
-            {
-                MessageBox.Show("Debe ingresar la cedula del cliente para realizar la busqueda!");
-                TxtCedulaClient.Focus();
-                
-            }
         }
+
+       
 
         public void ClearTextBoxes()
         {
@@ -277,7 +268,6 @@ namespace PulsacionesGUI
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             InvoiceSearchAnswer answer = invoiceService.SearchInvoice();
-            MessageBox.Show(answer.Message);
 
             saveFileDialog.Title = "Guardar Factura";
             saveFileDialog.InitialDirectory = @"D:\University\Programacion III";
@@ -322,18 +312,88 @@ namespace PulsacionesGUI
 
         private void BtnEliminarProducto_Click(object sender, EventArgs e)
         {
+            RemoveInvoiceDetail();
 
-            invoice.InvoiceDetails.RemoveAt(CellValue);
+        }
+
+        public void RemoveInvoiceDetail()
+        {
+            invoice.InvoiceDetails.RemoveAt(RowIndex);
+            invoiceDetailDTOs.RemoveAt(RowIndex);
             FillTableInvoiceDetail();
             CalculateTotals();
-
         }
-        int CellValue = 0;
+        int RowIndex = 0;
         private void DgvTableInvoiceDetail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            CellValue = DgvTableInvoiceDetail.CurrentCell.RowIndex;
+            RowIndex = DgvTableInvoiceDetail.CurrentCell.RowIndex;
+            ExtractInvoiceDetail();
         }
 
-       
+        public void ExtractInvoiceDetail()
+        {
+            InvoiceDetail invoiceDetail  = invoice.InvoiceDetails.ElementAt(RowIndex);
+
+
+            TxtID.Text = invoiceDetail.Product.ID;
+            TxtName.Text = invoiceDetail.Product.Name;
+            TxtUnitValue.Text = invoiceDetail.Product.UnitValue.ToString();
+            TxtUnitMeasure.Text = invoiceDetail.Product.UnitMeasure;
+            TxtWarehouseQuantity.Text = invoiceDetail.Product.Quantity.ToString();
+            TxtIVA.Text = invoiceDetail.Product.IVA.ToString();
+            TxtQuantity.Text = invoiceDetail.Quantity.ToString();
+            TxtDiscount.Text = invoiceDetail.Discount.ToString();
+
+        }
+
+        //public void EditInvoiceDetail()
+        //{
+        //    IList<InvoiceDetail> invoiceDetails = invoice.InvoiceDetails;
+        //    invoice.InvoiceDetails.Clear();
+        //    foreach (var item in invoiceDetails)
+        //    {
+        //        if(invoiceDetail.Product.ID != item.Product.ID)
+        //        {
+        //            invoice.InvoiceDetails.Add(item);
+        //        }else
+        //        {
+        //            invoice.AgregarDetalleFactura(invoiceDetail.Product, invoiceDetail.Quantity, invoiceDetail.Discount);
+        //        }
+        //    }
+        //}
+
+        //public void EditInvoiceDetailDTO()
+        //{
+        //    IList<InvoiceDetailDTO> _invoiceDetailsDTOs = invoiceDetailDTOs;
+        //    invoiceDetailDTOs.Clear();
+        //    foreach (var item in _invoiceDetailsDTOs)
+        //    {
+        //        if (invoiceDetail.Product.ID != item.ID)
+        //        {
+        //            invoiceDetailDTOs.Add(item);
+        //        }
+        //        else
+        //        {
+
+        //            InvoiceDetailDTO invoiceDTO = invoiceService.MapInvoiceDetailDTO(invoiceDetail.Product, invoiceDetail.Quantity, invoiceDetail.Discount);
+        //            invoiceDetailDTOs.Add(invoiceDTO);
+        //        }
+        //    }
+        //}
+
+        public void EditInvoiceDetail()
+        {
+            invoice.InvoiceDetails.RemoveAt(RowIndex);
+            invoiceDetailDTOs.RemoveAt(RowIndex);
+            AddInvoiceDetail();
+            FillTableInvoiceDetail();
+            CalculateTotals();
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            EditInvoiceDetail();
+
+        }
     }
 }

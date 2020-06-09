@@ -24,11 +24,10 @@ namespace Entity
 
         public void AgregarDetalleFactura(Product product, float quantity, float discount)
         {
-            InvoiceDetail invoicedetail = new InvoiceDetail(product, quantity,discount);
+            InvoiceDetail invoicedetail = new InvoiceDetail(product, quantity, discount);
             invoicedetail.Invoice_ID = this.Invoice_ID;
             InvoiceDetails.Add(invoicedetail);
         }
-
         public void CalculateSubtotal()
         {
             Subtotal = InvoiceDetails.Sum(d => d.TolalDetail);

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using BLL;
 using Entity;
-using BLL;
+using System;
 using System.Configuration;
+using System.Windows.Forms;
 namespace PulsacionesGUI
 {
     public partial class ListaProductosFrm : Form

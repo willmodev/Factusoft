@@ -17,10 +17,7 @@ namespace Entity
         public decimal IVA { get; set; }
         public decimal TolalDetail { get; set; }
 
-        public InvoiceDetail()
-        {
-
-        }
+       
         public InvoiceDetail(Product product, float quantity, float discount)
         {
             Product = product;
@@ -32,6 +29,8 @@ namespace Entity
             CalculateTotalDetail();
             CalculateIva();
         }
+
+        public InvoiceDetail() {}
 
         public void CalculateTotalDetail()
         {

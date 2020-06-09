@@ -72,7 +72,7 @@ namespace BLL
             InvoiceDetailDTO invoiceDetailDTO = new InvoiceDetailDTO();
             InvoiceDetail invoiceDetail = new InvoiceDetail(product,quantity,discount);
 
-
+            invoiceDetailDTO.ID =  invoiceDetail.Product.ID;
             invoiceDetailDTO.NameProduct = invoiceDetail.Product.Name;
             invoiceDetailDTO.Quantity = invoiceDetail.Quantity;
             invoiceDetailDTO.UnitValue = invoiceDetail.Product.UnitValue;
@@ -125,6 +125,7 @@ namespace BLL
 
     public class InvoiceDetailDTO
     {
+        public string ID { get; set; }
         public string NameProduct { get; set; }
         public decimal UnitValue { get; set; }
         public float Quantity { get; set; }

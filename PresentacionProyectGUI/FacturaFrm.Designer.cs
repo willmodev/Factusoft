@@ -58,7 +58,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.BtnAddInvoiceDetail = new FontAwesome.Sharp.IconButton();
             this.BtnShowList = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.BtnEdit = new FontAwesome.Sharp.IconButton();
             this.TxtDiscount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TxtUnitMeasure = new System.Windows.Forms.TextBox();
@@ -464,29 +464,30 @@
             this.BtnShowList.UseVisualStyleBackColor = false;
             this.BtnShowList.Click += new System.EventHandler(this.BtnVerlista_Click);
             // 
-            // iconButton1
+            // BtnEdit
             // 
-            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.iconButton1.IconColor = System.Drawing.Color.RoyalBlue;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(663, 296);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(79, 24);
-            this.iconButton1.TabIndex = 124;
-            this.iconButton1.Text = "Eliminar";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.BtnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnEdit.BackColor = System.Drawing.Color.White;
+            this.BtnEdit.FlatAppearance.BorderSize = 0;
+            this.BtnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
+            this.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEdit.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BtnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEdit.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.BtnEdit.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.BtnEdit.IconColor = System.Drawing.Color.RoyalBlue;
+            this.BtnEdit.IconSize = 20;
+            this.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEdit.Location = new System.Drawing.Point(663, 296);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Rotation = 0D;
+            this.BtnEdit.Size = new System.Drawing.Size(79, 24);
+            this.BtnEdit.TabIndex = 124;
+            this.BtnEdit.Text = "Editar";
+            this.BtnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEdit.UseVisualStyleBackColor = false;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // TxtDiscount
             // 
@@ -663,7 +664,7 @@
             this.Controls.Add(this.label21);
             this.Controls.Add(this.TxtDiscount);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.BtnEdit);
             this.Controls.Add(this.BtnShowList);
             this.Controls.Add(this.BtnAddInvoiceDetail);
             this.Controls.Add(this.TxtIVA);
@@ -729,7 +730,7 @@
         private System.Windows.Forms.Label label18;
         private FontAwesome.Sharp.IconButton BtnAddInvoiceDetail;
         private FontAwesome.Sharp.IconButton BtnShowList;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton BtnEdit;
         public System.Windows.Forms.TextBox TxtID;
         public System.Windows.Forms.TextBox TxtQuantity;
         public System.Windows.Forms.TextBox TxtName;
