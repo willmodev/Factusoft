@@ -104,6 +104,33 @@ namespace DAL
             return invoice;
         }
 
+        public IList<Invoice> ConsultInvoices()
+        {
+            SqlDataReader sqlDataReader;
+            IList<Invoice> invoices = new List<Invoice>();
+
+            using (var command = sqlConnection.CreateCommand())
+            {
+                command.CommandText = @"selectInvoiceAndClients2";
+                command.CommandType = CommandType.StoredProcedure;
+                sqlDataReader = command.ExecuteReader();
+
+                if (sqlDataReader.HasRows)
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        Invoice invoice = MapInvoice(sqlDataReader);
+                        invoices.Add(invoice);
+                    }
+                }
+                else
+                    invoices = null;
+
+            }
+
+            return invoices;
+        }
+
         public IList<InvoiceDetail> ConsultInvoiceDetail(int invoice_id)
         {
             SqlDataReader sqlDataReader;

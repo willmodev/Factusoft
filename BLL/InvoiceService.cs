@@ -19,7 +19,7 @@ namespace BLL
             invoiceRepository = new InvoiceRepository(connectionManager);
         }
 
-
+       
         public SaveInvoiceAnswer SaveInvoice(Invoice invoice)
         {
             SaveInvoiceAnswer answer = new SaveInvoiceAnswer();
@@ -66,7 +66,58 @@ namespace BLL
 
         }
 
-        
+        public InvoiceDetailConsultAnswer ConsultInvoiceDetail(int invoice_id)
+        {
+            InvoiceDetailConsultAnswer answer = new InvoiceDetailConsultAnswer();
+
+            try
+            {
+                connectionManager.OpenConnection();
+                answer.Error = false;
+                answer.invoiceDetails = invoiceRepository.ConsultInvoiceDetail(invoice_id);
+                answer.Message = answer.invoiceDetails.Count != 0 ? "Detalles encontrados" : "Los detalles no existen!";
+
+                return answer;
+            }
+            catch (Exception e)
+            {
+                answer.Error = false;
+                answer.Message = $"Error de aplicacion: {e.Message}";
+                answer.invoiceDetails = null;
+
+                return answer;
+
+            }
+            finally { connectionManager.CloseConnection(); }
+
+        }
+
+        public InvoiceConsultAnswer ConsultInvoices()
+        {
+            InvoiceConsultAnswer answer = new InvoiceConsultAnswer();
+
+            try
+            {
+                connectionManager.OpenConnection();
+                answer.Error = false;
+                answer.Invoices = invoiceRepository.ConsultInvoices();
+                answer.Message = answer.Invoices != null ? "Cunsulta de facturas exitosa!" : "No existen facturas registradas!";
+                return answer;
+
+
+            }
+            catch (Exception e)
+            {
+                answer.Error = true;
+                answer.Message = $"Error de aplicacion: {e.Message}";
+                answer.Invoices = null;
+
+                return answer;
+            }
+            finally { connectionManager.CloseConnection(); }
+        }
+
+
         public InvoiceDetailDTO MapInvoiceDetailDTO(Product product, float quantity,float discount)
         {
             InvoiceDetailDTO invoiceDetailDTO = new InvoiceDetailDTO();
@@ -139,5 +190,19 @@ namespace BLL
         public bool Error { get; set; }
         public string Message { get; set; }
         public Invoice Invoice { get; set; }
+    }
+
+    public class InvoiceConsultAnswer
+    {
+        public bool Error { get; set; }
+        public string Message { get; set; }
+        public IList<Invoice> Invoices { get; set; }
+    }
+
+    public class InvoiceDetailConsultAnswer
+    {
+        public bool Error { get; set; }
+        public string Message { get; set; }
+        public IList<InvoiceDetail> invoiceDetails { get; set; }
     }
 }
