@@ -51,6 +51,7 @@ namespace PulsacionesGUI
         {
             bool accept = Meesage("Seguro que desea eliminar este producto", "Mensaje de confirmacion");
             if (accept) MessageBox.Show(productService.Remove(TxtID.Text));
+            TxtID.ReadOnly = false;
             FillTable();
             ChangeStatus();
 
@@ -79,6 +80,7 @@ namespace PulsacionesGUI
                    product.Quantity.ToString(),
                    product.IVA.ToString()
                 );
+                TxtID.ReadOnly = true;
                 DisplayButtons(true,false,false);
             }
             else MessageBox.Show(answer.Message);
@@ -93,6 +95,7 @@ namespace PulsacionesGUI
             ConsultProductAnswer answer = productService.Consult();
             Product product = MapOutProduct();
             MessageBox.Show(productService.Modify(product));
+            TxtID.ReadOnly = false;
             ChangeStatus();
             FillTable();
         }
@@ -206,6 +209,7 @@ namespace PulsacionesGUI
                 TxtQuantity.Text = row.Cells[4].Value.ToString();
                 TxtIVA.Text = row.Cells[5].Value.ToString();
 
+                TxtID.ReadOnly = true;
                 AlterModified();
                 DisplayButtons(true, false, false);
             }
