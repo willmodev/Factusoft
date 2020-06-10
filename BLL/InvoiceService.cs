@@ -42,14 +42,14 @@ namespace BLL
             finally { connectionManager.CloseConnection(); }
         }
 
-        public InvoiceSearchAnswer SearchInvoice()
+        public InvoiceSearchAnswer SearchInvoice(int invoice_id)
         {
             InvoiceSearchAnswer answer = new InvoiceSearchAnswer();
             try
             {
                 connectionManager.OpenConnection();
                 answer.Error = false;
-                answer.Invoice = invoiceRepository.SearchInvoice();
+                answer.Invoice = invoiceRepository.SearchInvoice(invoice_id);
                 answer.Message = answer.Invoice != null ? "Factura encontrada" : "La factura no existe";
 
                 return answer;

@@ -39,15 +39,8 @@ namespace Infrastructure
             mailMessage.To.Add(client.E_mail);
             mailMessage.From = new MailAddress(admin.Email);
             mailMessage.Subject = "Registro de cliente - " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
-            mailMessage.Body = $"<b> {client.FirstName} </b> <br " +
-                $"> Reportes de productos de la app Factusoft";
-
-            //openFileDialog.ShowDialog();
-
-            //if(openFileDialog.FileName.Equals("") == false)
-            //    ruta = openFileDialog.FileName;
-
-            //mailMessage.Attachments.Add( new Attachment(ruta));
+            mailMessage.Body = $"<b>Sr {client.FirstName} </b> <br " +
+                $"> Su registro en FACTUSOFT ha sido exitoso!";
 
             mailMessage.IsBodyHtml = true;
             mailMessage.Priority = MailPriority.Normal;

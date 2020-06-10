@@ -29,26 +29,17 @@
         private void InitializeComponent()
         {
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtNumberInvoice = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.BtnSearchInvoice = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.FacturaDgv = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.identoficacionTxt = new System.Windows.Forms.TextBox();
+            this.DgvInvoice = new System.Windows.Forms.DataGridView();
+            this.TxtCedulaClient = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.EdadTxt = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.NombreTxt = new System.Windows.Forms.TextBox();
+            this.TxtLastNameClient = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtNameClient = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -57,7 +48,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)(this.FacturaDgv)).BeginInit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxtInvoiceType = new System.Windows.Forms.TextBox();
+            this.LblSubTotal = new System.Windows.Forms.Label();
+            this.LblIVA = new System.Windows.Forms.Label();
+            this.LblTotalInvoice = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvInvoice)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -74,13 +70,13 @@
             this.label13.TabIndex = 85;
             this.label13.Text = "Gestion de factura";
             // 
-            // textBox2
+            // TxtNumberInvoice
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(136, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(174, 20);
-            this.textBox2.TabIndex = 98;
+            this.TxtNumberInvoice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtNumberInvoice.Location = new System.Drawing.Point(136, 97);
+            this.TxtNumberInvoice.Name = "TxtNumberInvoice";
+            this.TxtNumberInvoice.Size = new System.Drawing.Size(174, 20);
+            this.TxtNumberInvoice.TabIndex = 98;
             // 
             // label6
             // 
@@ -95,29 +91,30 @@
             this.label6.TabIndex = 99;
             this.label6.Text = "N° Factura:";
             // 
-            // iconButton1
+            // BtnSearchInvoice
             // 
-            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton1.BackColor = System.Drawing.Color.White;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.Lime;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconButton1.IconColor = System.Drawing.Color.Lime;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(336, 89);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(89, 34);
-            this.iconButton1.TabIndex = 100;
-            this.iconButton1.Text = "Buscar";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.BtnSearchInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSearchInvoice.BackColor = System.Drawing.Color.White;
+            this.BtnSearchInvoice.FlatAppearance.BorderSize = 0;
+            this.BtnSearchInvoice.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnSearchInvoice.FlatAppearance.MouseOverBackColor = System.Drawing.Color.NavajoWhite;
+            this.BtnSearchInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSearchInvoice.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BtnSearchInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSearchInvoice.ForeColor = System.Drawing.Color.Lime;
+            this.BtnSearchInvoice.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.BtnSearchInvoice.IconColor = System.Drawing.Color.Lime;
+            this.BtnSearchInvoice.IconSize = 30;
+            this.BtnSearchInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSearchInvoice.Location = new System.Drawing.Point(336, 89);
+            this.BtnSearchInvoice.Name = "BtnSearchInvoice";
+            this.BtnSearchInvoice.Rotation = 0D;
+            this.BtnSearchInvoice.Size = new System.Drawing.Size(89, 34);
+            this.BtnSearchInvoice.TabIndex = 100;
+            this.BtnSearchInvoice.Text = "Buscar";
+            this.BtnSearchInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSearchInvoice.UseVisualStyleBackColor = false;
+            this.BtnSearchInvoice.Click += new System.EventHandler(this.BtnSearchInvoice_Click);
             // 
             // iconButton3
             // 
@@ -167,84 +164,28 @@
             this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton4.UseVisualStyleBackColor = false;
             // 
-            // FacturaDgv
+            // DgvInvoice
             // 
-            this.FacturaDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.FacturaDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.FacturaDgv.BackgroundColor = System.Drawing.Color.White;
-            this.FacturaDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.FacturaDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.Column2,
-            this.Column3,
-            this.Column1,
-            this.Total});
-            this.FacturaDgv.Location = new System.Drawing.Point(59, 276);
-            this.FacturaDgv.Name = "FacturaDgv";
-            this.FacturaDgv.ReadOnly = true;
-            this.FacturaDgv.Size = new System.Drawing.Size(501, 118);
-            this.FacturaDgv.TabIndex = 141;
+            this.DgvInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgvInvoice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.DgvInvoice.BackgroundColor = System.Drawing.Color.White;
+            this.DgvInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvInvoice.Location = new System.Drawing.Point(59, 276);
+            this.DgvInvoice.Name = "DgvInvoice";
+            this.DgvInvoice.ReadOnly = true;
+            this.DgvInvoice.Size = new System.Drawing.Size(501, 118);
+            this.DgvInvoice.TabIndex = 141;
             // 
-            // dataGridViewTextBoxColumn1
+            // TxtCedulaClient
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 43;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Cantidad";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 74;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Valor Unitario";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 95;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "IVA";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 49;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Subtotal";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 71;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 56;
-            // 
-            // identoficacionTxt
-            // 
-            this.identoficacionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtCedulaClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.identoficacionTxt.Location = new System.Drawing.Point(71, 195);
-            this.identoficacionTxt.Name = "identoficacionTxt";
-            this.identoficacionTxt.Size = new System.Drawing.Size(136, 20);
-            this.identoficacionTxt.TabIndex = 124;
+            this.TxtCedulaClient.Location = new System.Drawing.Point(71, 195);
+            this.TxtCedulaClient.Name = "TxtCedulaClient";
+            this.TxtCedulaClient.ReadOnly = true;
+            this.TxtCedulaClient.Size = new System.Drawing.Size(136, 20);
+            this.TxtCedulaClient.TabIndex = 124;
             // 
             // label5
             // 
@@ -259,34 +200,14 @@
             this.label5.TabIndex = 125;
             this.label5.Text = "Identificacion: ";
             // 
-            // EdadTxt
+            // TxtLastNameClient
             // 
-            this.EdadTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.EdadTxt.Location = new System.Drawing.Point(574, 195);
-            this.EdadTxt.Name = "EdadTxt";
-            this.EdadTxt.Size = new System.Drawing.Size(131, 20);
-            this.EdadTxt.TabIndex = 130;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label3.Location = new System.Drawing.Point(571, 179);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 13);
-            this.label3.TabIndex = 131;
-            this.label3.Text = "Identificacion:";
-            // 
-            // NombreTxt
-            // 
-            this.NombreTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.NombreTxt.Location = new System.Drawing.Point(409, 195);
-            this.NombreTxt.Name = "NombreTxt";
-            this.NombreTxt.Size = new System.Drawing.Size(136, 20);
-            this.NombreTxt.TabIndex = 129;
+            this.TxtLastNameClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtLastNameClient.Location = new System.Drawing.Point(409, 195);
+            this.TxtLastNameClient.Name = "TxtLastNameClient";
+            this.TxtLastNameClient.ReadOnly = true;
+            this.TxtLastNameClient.Size = new System.Drawing.Size(136, 20);
+            this.TxtLastNameClient.TabIndex = 129;
             // 
             // label2
             // 
@@ -301,13 +222,14 @@
             this.label2.TabIndex = 132;
             this.label2.Text = "Apellido:";
             // 
-            // textBox3
+            // TxtNameClient
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Location = new System.Drawing.Point(238, 195);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(138, 20);
-            this.textBox3.TabIndex = 134;
+            this.TxtNameClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtNameClient.Location = new System.Drawing.Point(238, 195);
+            this.TxtNameClient.Name = "TxtNameClient";
+            this.TxtNameClient.ReadOnly = true;
+            this.TxtNameClient.Size = new System.Drawing.Size(138, 20);
+            this.TxtNameClient.TabIndex = 134;
             // 
             // label4
             // 
@@ -336,14 +258,13 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(597, 322);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 13);
+            this.label14.Size = new System.Drawing.Size(0, 13);
             this.label14.TabIndex = 144;
-            this.label14.Text = "Descuento:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(597, 297);
+            this.label12.Location = new System.Drawing.Point(597, 322);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 13);
             this.label12.TabIndex = 143;
@@ -411,12 +332,62 @@
             this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton2.UseVisualStyleBackColor = false;
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.label3.Location = new System.Drawing.Point(490, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 131;
+            this.label3.Text = "Tipo de factura:";
+            // 
+            // TxtInvoiceType
+            // 
+            this.TxtInvoiceType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtInvoiceType.Location = new System.Drawing.Point(493, 97);
+            this.TxtInvoiceType.Name = "TxtInvoiceType";
+            this.TxtInvoiceType.ReadOnly = true;
+            this.TxtInvoiceType.Size = new System.Drawing.Size(131, 20);
+            this.TxtInvoiceType.TabIndex = 130;
+            // 
+            // LblSubTotal
+            // 
+            this.LblSubTotal.AutoSize = true;
+            this.LblSubTotal.Location = new System.Drawing.Point(652, 322);
+            this.LblSubTotal.Name = "LblSubTotal";
+            this.LblSubTotal.Size = new System.Drawing.Size(0, 13);
+            this.LblSubTotal.TabIndex = 149;
+            // 
+            // LblIVA
+            // 
+            this.LblIVA.AutoSize = true;
+            this.LblIVA.Location = new System.Drawing.Point(630, 347);
+            this.LblIVA.Name = "LblIVA";
+            this.LblIVA.Size = new System.Drawing.Size(0, 13);
+            this.LblIVA.TabIndex = 150;
+            // 
+            // LblTotalInvoice
+            // 
+            this.LblTotalInvoice.AutoSize = true;
+            this.LblTotalInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalInvoice.Location = new System.Drawing.Point(643, 374);
+            this.LblTotalInvoice.Name = "LblTotalInvoice";
+            this.LblTotalInvoice.Size = new System.Drawing.Size(0, 13);
+            this.LblTotalInvoice.TabIndex = 151;
+            // 
             // GestionarFacturasFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(860, 512);
+            this.Controls.Add(this.LblTotalInvoice);
+            this.Controls.Add(this.LblIVA);
+            this.Controls.Add(this.LblSubTotal);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
@@ -424,25 +395,25 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.FacturaDgv);
-            this.Controls.Add(this.identoficacionTxt);
+            this.Controls.Add(this.DgvInvoice);
+            this.Controls.Add(this.TxtCedulaClient);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.EdadTxt);
+            this.Controls.Add(this.TxtInvoiceType);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.NombreTxt);
+            this.Controls.Add(this.TxtLastNameClient);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TxtNameClient);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.iconButton4);
             this.Controls.Add(this.iconButton3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TxtNumberInvoice);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.BtnSearchInvoice);
             this.Controls.Add(this.label13);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarFacturasFrm";
             this.Text = "GestionarFacturasFrm";
-            ((System.ComponentModel.ISupportInitialize)(this.FacturaDgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvInvoice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,26 +422,17 @@
         #endregion
 
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtNumberInvoice;
         private System.Windows.Forms.Label label6;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton BtnSearchInvoice;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private System.Windows.Forms.DataGridView FacturaDgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.TextBox identoficacionTxt;
+        private System.Windows.Forms.DataGridView DgvInvoice;
+        private System.Windows.Forms.TextBox TxtCedulaClient;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox EdadTxt;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox NombreTxt;
+        private System.Windows.Forms.TextBox TxtLastNameClient;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtNameClient;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
@@ -479,5 +441,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TxtInvoiceType;
+        private System.Windows.Forms.Label LblSubTotal;
+        private System.Windows.Forms.Label LblIVA;
+        private System.Windows.Forms.Label LblTotalInvoice;
     }
 }

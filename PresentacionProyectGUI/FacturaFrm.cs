@@ -267,7 +267,7 @@ namespace PulsacionesGUI
         public void GeneratePDF()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            InvoiceSearchAnswer answer = invoiceService.SearchInvoice();
+            InvoiceSearchAnswer answer = invoiceService.SearchInvoice(invoice.Invoice_ID);
 
             saveFileDialog.Title = "Guardar Factura";
             saveFileDialog.InitialDirectory = @"D:\University\Programacion III";
@@ -346,40 +346,7 @@ namespace PulsacionesGUI
 
         }
 
-        //public void EditInvoiceDetail()
-        //{
-        //    IList<InvoiceDetail> invoiceDetails = invoice.InvoiceDetails;
-        //    invoice.InvoiceDetails.Clear();
-        //    foreach (var item in invoiceDetails)
-        //    {
-        //        if(invoiceDetail.Product.ID != item.Product.ID)
-        //        {
-        //            invoice.InvoiceDetails.Add(item);
-        //        }else
-        //        {
-        //            invoice.AgregarDetalleFactura(invoiceDetail.Product, invoiceDetail.Quantity, invoiceDetail.Discount);
-        //        }
-        //    }
-        //}
-
-        //public void EditInvoiceDetailDTO()
-        //{
-        //    IList<InvoiceDetailDTO> _invoiceDetailsDTOs = invoiceDetailDTOs;
-        //    invoiceDetailDTOs.Clear();
-        //    foreach (var item in _invoiceDetailsDTOs)
-        //    {
-        //        if (invoiceDetail.Product.ID != item.ID)
-        //        {
-        //            invoiceDetailDTOs.Add(item);
-        //        }
-        //        else
-        //        {
-
-        //            InvoiceDetailDTO invoiceDTO = invoiceService.MapInvoiceDetailDTO(invoiceDetail.Product, invoiceDetail.Quantity, invoiceDetail.Discount);
-        //            invoiceDetailDTOs.Add(invoiceDTO);
-        //        }
-        //    }
-        //}
+       
 
         public void EditInvoiceDetail()
         {

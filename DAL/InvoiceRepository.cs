@@ -23,7 +23,6 @@ namespace DAL
         {
             using (var command = sqlConnection.CreateCommand())
             {
-                //SqlTransaction transaction = sqlConnection.BeginTransaction();
                 command.Transaction = sqlTransaction;
 
                 command.CommandText = "insert_invoice";
@@ -39,11 +38,6 @@ namespace DAL
                 command.Parameters.AddWithValue("@Total", invoice.Total);
             
                 command.ExecuteNonQuery();
-
-                
-                //transaction.Commit();
-
-               
 
                 
             }
@@ -66,7 +60,6 @@ namespace DAL
             {
                 using (var command = sqlConnection.CreateCommand())
                 {
-                    //SqlTransaction transaction = sqlConnection.BeginTransaction();
                     command.Transaction = sqlTransaction;
 
                     command.CommandText = "insert_InvoiceDetail";
@@ -79,15 +72,14 @@ namespace DAL
                     command.Parameters.AddWithValue("@Invoice_ID",item.Invoice_ID);
                     command.Parameters.AddWithValue("@TolalDetail", item.TolalDetail);
 
-                    command.ExecuteNonQuery();
-                    //transaction.Commit();
+                    command.ExecuteNonQuery();;
                 }
 
             }
 
         }
 
-        public Invoice SearchInvoice()
+        public Invoice SearchInvoice(int invoice_id)
         {
             SqlDataReader sqlDataReader;
             Invoice invoice = new Invoice();
@@ -96,6 +88,7 @@ namespace DAL
             {
                 command.CommandText = "selectInvoiceAndClients";
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Invoice_ID", invoice_id);
 
                 sqlDataReader = command.ExecuteReader();
 
