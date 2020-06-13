@@ -50,10 +50,11 @@ namespace PulsacionesGUI
 
                     facturaFrm.TxtID.Text = row.Cells[0].Value.ToString();
                     facturaFrm.TxtName.Text = row.Cells[1].Value.ToString();
-                    facturaFrm.TxtUnitValue.Text = row.Cells[2].Value.ToString();
-                    facturaFrm.TxtUnitMeasure.Text = row.Cells[3].Value.ToString();
-                    facturaFrm.TxtWarehouseQuantity.Text = row.Cells[4].Value.ToString();
-                    facturaFrm.TxtIVA.Text = row.Cells[5].Value.ToString();
+                    facturaFrm.TxtSalePrice.Text = row.Cells[2].Value.ToString();
+                    facturaFrm.TxtPurchasePrice.Text = row.Cells[3].Value.ToString();
+                    facturaFrm.TxtUnitMeasure.Text = row.Cells[4].Value.ToString();
+                    facturaFrm.TxtWarehouseQuantity.Text = row.Cells[5].Value.ToString();
+                    facturaFrm.TxtIVA.Text = row.Cells[6].Value.ToString();
                     facturaFrm.TxtQuantity.Text = "0";
                     facturaFrm.TxtDiscount.Text = "0";
 

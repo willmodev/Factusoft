@@ -67,12 +67,11 @@ namespace DAL
 
                     command.Parameters.AddWithValue("@Quantity", item.Quantity);
                     command.Parameters.AddWithValue("@Discount", item.Discount);
-                    command.Parameters.AddWithValue("@IVA", item.IVA);
                     command.Parameters.AddWithValue("@product_ID", item.Product.ID);
                     command.Parameters.AddWithValue("@Invoice_ID",item.Invoice_ID);
                     command.Parameters.AddWithValue("@TolalDetail", item.TolalDetail);
 
-                    command.ExecuteNonQuery();;
+                    command.ExecuteNonQuery();
                 }
 
             }
@@ -167,10 +166,11 @@ namespace DAL
 
             product.ID = sqlDataReader.GetString(3);
             product.Name = sqlDataReader.GetString(4);
-            product.UnitValue = sqlDataReader.GetDecimal(5);
-            product.UnitMeasure = sqlDataReader.GetString(6);
-            product.IVA = sqlDataReader.GetDecimal(7);
-            product.Quantity = (float)sqlDataReader.GetDouble(8);
+            product.SalePrice = sqlDataReader.GetDecimal(5);
+            product.PurchasePrice = sqlDataReader.GetDecimal(6);
+            product.UnitMeasure = sqlDataReader.GetString(7);
+            product.IVA = sqlDataReader.GetDecimal(8);
+            product.Quantity = (float)sqlDataReader.GetDouble(9);
 
             invoiceDetail.Product = product;
             invoiceDetail.Quantity = (float)sqlDataReader.GetDouble(0);
@@ -223,5 +223,7 @@ namespace DAL
                 }
             }
         }
+
+       
     }
 }

@@ -39,8 +39,10 @@ namespace PulsacionesGUI
 
         private void  AssingInvoiceNumber()
         {
+
             InvoiceCountAnswer answer = invoiceService.InvoiceCount;
             LblInvoiceNumber.Text = (++answer.Count).ToString("0000");
+            CmbInvoiceType.SelectedIndex = 1;
             if (answer.Error) MessageBox.Show(answer.Message);
 
             
@@ -128,7 +130,8 @@ namespace PulsacionesGUI
                         TxtName.Text = product.Name;
                         TxtUnitMeasure.Text = product.UnitMeasure;
                         TxtWarehouseQuantity.Text = product.Quantity.ToString();
-                        TxtUnitValue.Text = product.UnitValue.ToString();
+                        TxtSalePrice.Text = product.SalePrice.ToString();
+                        TxtPurchasePrice.Text = product.PurchasePrice.ToString();
                         TxtIVA.Text = product.IVA.ToString();
 
                         TxtQuantity.Text = "0";
@@ -175,7 +178,8 @@ namespace PulsacionesGUI
 
             product.ID = TxtID.Text;
             product.Name = TxtName.Text;
-            product.UnitValue = decimal.Parse(TxtUnitValue.Text);
+            product.SalePrice = decimal.Parse(TxtSalePrice.Text);
+            product.PurchasePrice = decimal.Parse(TxtPurchasePrice.Text);
             product.UnitMeasure = TxtUnitMeasure.Text;
             product.Quantity = float.Parse(TxtWarehouseQuantity.Text);
             product.IVA = decimal.Parse(TxtIVA.Text);
@@ -185,8 +189,10 @@ namespace PulsacionesGUI
         private void AddInvoiceDetail()
         {
             MapOutProduct();
-
-            AddInvoiceDetail(product, float.Parse(TxtQuantity.Text), float.Parse(TxtDiscount.Text));
+            if (CmbInvoiceType.Text == "Venta")
+                AddInvoiceDetail(product, float.Parse(TxtQuantity.Text), float.Parse(TxtDiscount.Text),product.SalePrice);
+            else
+                AddInvoiceDetail(product, float.Parse(TxtQuantity.Text), float.Parse(TxtDiscount.Text), product.PurchasePrice);
             FillTableInvoiceDetail();
             CalculateTotals();
 
@@ -194,10 +200,10 @@ namespace PulsacionesGUI
             ClearTextBoxes();
         }
 
-        public void AddInvoiceDetail(Product product, float quantity, float discount)
+        public void AddInvoiceDetail(Product product, float quantity, float discount, decimal price)
         {
-            invoice.AgregarDetalleFactura(product,quantity,discount);
-            InvoiceDetailDTO invoiceDTO = invoiceService.MapInvoiceDetailDTO(product, quantity, discount);
+            invoice.AgregarDetalleFactura(product,quantity,discount,price);
+            InvoiceDetailDTO invoiceDTO = invoiceService.MapInvoiceDetailDTO(product, quantity, discount,price);
 
             invoiceDetailDTOs.Add(invoiceDTO);
         }
@@ -230,7 +236,7 @@ namespace PulsacionesGUI
             TxtName.Clear();
             TxtUnitMeasure.Clear();
             TxtQuantity.Clear();
-            TxtUnitValue.Clear();
+            TxtSalePrice.Clear();
             TxtIVA.Clear();
             TxtWarehouseQuantity.Clear();
             TxtDiscount.Clear();
@@ -279,6 +285,7 @@ namespace PulsacionesGUI
                 fileName = saveFileDialog.FileName;
             if (fileName != "" && answer.Invoice != null)
             {
+                
                 string message = productService.GeneratePDF(answer.Invoice, fileName);
                 MessageBox.Show(message, "Generar PDF", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -337,7 +344,8 @@ namespace PulsacionesGUI
 
             TxtID.Text = invoiceDetail.Product.ID;
             TxtName.Text = invoiceDetail.Product.Name;
-            TxtUnitValue.Text = invoiceDetail.Product.UnitValue.ToString();
+            TxtSalePrice.Text = invoiceDetail.Product.SalePrice.ToString();
+            TxtPurchasePrice.Text = invoiceDetail.Product.PurchasePrice.ToString();
             TxtUnitMeasure.Text = invoiceDetail.Product.UnitMeasure;
             TxtWarehouseQuantity.Text = invoiceDetail.Product.Quantity.ToString();
             TxtIVA.Text = invoiceDetail.Product.IVA.ToString();
@@ -361,6 +369,26 @@ namespace PulsacionesGUI
         {
             EditInvoiceDetail();
 
+        }
+
+        private void CmbInvoiceType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(CmbInvoiceType.SelectedIndex == 0)
+            {
+                ChangeVisibility(false, false, true, true);
+            }
+            else
+            {
+                ChangeVisibility(true, true,false,false);
+            }
+        }
+
+        private void ChangeVisibility(bool txtSalePrice, bool lblSalePrice, bool txtPurchasePrice, bool lblPurchasePrice)
+        {
+            TxtSalePrice.Visible = txtSalePrice;
+            LblSalePrice.Visible = lblSalePrice;
+            TxtPurchasePrice.Visible = txtPurchasePrice;
+            LblPurchasePrice.Visible = lblPurchasePrice;
         }
     }
 }

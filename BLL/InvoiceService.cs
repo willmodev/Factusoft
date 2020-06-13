@@ -118,15 +118,15 @@ namespace BLL
         }
 
 
-        public InvoiceDetailDTO MapInvoiceDetailDTO(Product product, float quantity,float discount)
+        public InvoiceDetailDTO MapInvoiceDetailDTO(Product product, float quantity,float discount, decimal price)
         {
             InvoiceDetailDTO invoiceDetailDTO = new InvoiceDetailDTO();
-            InvoiceDetail invoiceDetail = new InvoiceDetail(product,quantity,discount);
+            InvoiceDetail invoiceDetail = new InvoiceDetail(product,quantity,discount,price);
 
             invoiceDetailDTO.ID =  invoiceDetail.Product.ID;
             invoiceDetailDTO.NameProduct = invoiceDetail.Product.Name;
             invoiceDetailDTO.Quantity = invoiceDetail.Quantity;
-            invoiceDetailDTO.UnitValue = invoiceDetail.Product.UnitValue;
+            invoiceDetailDTO.UnitValue = invoiceDetail.UnitValue;
             invoiceDetailDTO.IVA = invoiceDetail.Product.IVA;
             invoiceDetailDTO.Discount = invoiceDetail.Discount;
             invoiceDetailDTO.TolalDetail = invoiceDetail.TolalDetail;
@@ -157,6 +157,18 @@ namespace BLL
                 }
                 finally { connectionManager.CloseConnection(); }
             }
+        }
+
+        public IList<Invoice> FilerByType(string invoiceType)
+        {
+            InvoiceConsultAnswer answer = ConsultInvoices();
+
+            return answer.Invoices.Where(i => i.InvoiceType.Equals(invoiceType)).ToList();
+        }
+
+        public decimal TotalByType(string invoiceType)
+        {
+            return FilerByType(invoiceType).Sum(i => i.Total);
         }
 
     }

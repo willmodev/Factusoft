@@ -52,8 +52,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.TxtWarehouseQuantity = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.TxtUnitValue = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.TxtSalePrice = new System.Windows.Forms.TextBox();
+            this.LblSalePrice = new System.Windows.Forms.Label();
             this.TxtIVA = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.BtnAddInvoiceDetail = new FontAwesome.Sharp.IconButton();
@@ -71,6 +71,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.BtnCommitInvoice = new FontAwesome.Sharp.IconButton();
+            this.TxtPurchasePrice = new System.Windows.Forms.TextBox();
+            this.LblPurchasePrice = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTableInvoiceDetail)).BeginInit();
             this.SuspendLayout();
             // 
@@ -372,26 +374,26 @@
             this.label16.TabIndex = 115;
             this.label16.Text = "Cant. Bodega:";
             // 
-            // TxtUnitValue
+            // TxtSalePrice
             // 
-            this.TxtUnitValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtUnitValue.Location = new System.Drawing.Point(148, 284);
-            this.TxtUnitValue.Name = "TxtUnitValue";
-            this.TxtUnitValue.Size = new System.Drawing.Size(64, 20);
-            this.TxtUnitValue.TabIndex = 117;
+            this.TxtSalePrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtSalePrice.Location = new System.Drawing.Point(145, 284);
+            this.TxtSalePrice.Name = "TxtSalePrice";
+            this.TxtSalePrice.Size = new System.Drawing.Size(86, 20);
+            this.TxtSalePrice.TabIndex = 117;
             // 
-            // label17
+            // LblSalePrice
             // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.White;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label17.Location = new System.Drawing.Point(145, 268);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(67, 13);
-            this.label17.TabIndex = 116;
-            this.label17.Text = "Valor Unit:";
+            this.LblSalePrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblSalePrice.AutoSize = true;
+            this.LblSalePrice.BackColor = System.Drawing.Color.White;
+            this.LblSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSalePrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.LblSalePrice.Location = new System.Drawing.Point(142, 268);
+            this.LblSalePrice.Name = "LblSalePrice";
+            this.LblSalePrice.Size = new System.Drawing.Size(80, 13);
+            this.LblSalePrice.TabIndex = 116;
+            this.LblSalePrice.Text = "Precio Venta";
             // 
             // TxtIVA
             // 
@@ -541,6 +543,7 @@
             this.CmbInvoiceType.Name = "CmbInvoiceType";
             this.CmbInvoiceType.Size = new System.Drawing.Size(121, 21);
             this.CmbInvoiceType.TabIndex = 130;
+            this.CmbInvoiceType.SelectedIndexChanged += new System.EventHandler(this.CmbInvoiceType_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -646,12 +649,37 @@
             this.BtnCommitInvoice.UseVisualStyleBackColor = false;
             this.BtnCommitInvoice.Click += new System.EventHandler(this.BtnCommitInvoice_Click);
             // 
+            // TxtPurchasePrice
+            // 
+            this.TxtPurchasePrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtPurchasePrice.Location = new System.Drawing.Point(145, 284);
+            this.TxtPurchasePrice.Name = "TxtPurchasePrice";
+            this.TxtPurchasePrice.Size = new System.Drawing.Size(86, 20);
+            this.TxtPurchasePrice.TabIndex = 139;
+            this.TxtPurchasePrice.Visible = false;
+            // 
+            // LblPurchasePrice
+            // 
+            this.LblPurchasePrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblPurchasePrice.AutoSize = true;
+            this.LblPurchasePrice.BackColor = System.Drawing.Color.White;
+            this.LblPurchasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPurchasePrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.LblPurchasePrice.Location = new System.Drawing.Point(142, 268);
+            this.LblPurchasePrice.Name = "LblPurchasePrice";
+            this.LblPurchasePrice.Size = new System.Drawing.Size(89, 13);
+            this.LblPurchasePrice.TabIndex = 138;
+            this.LblPurchasePrice.Text = "Precio Compra";
+            this.LblPurchasePrice.Visible = false;
+            // 
             // FacturaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(860, 512);
+            this.Controls.Add(this.TxtPurchasePrice);
+            this.Controls.Add(this.LblPurchasePrice);
             this.Controls.Add(this.BtnCommitInvoice);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -669,8 +697,8 @@
             this.Controls.Add(this.BtnAddInvoiceDetail);
             this.Controls.Add(this.TxtIVA);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.TxtUnitValue);
-            this.Controls.Add(this.label17);
+            this.Controls.Add(this.TxtSalePrice);
+            this.Controls.Add(this.LblSalePrice);
             this.Controls.Add(this.TxtWarehouseQuantity);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.TxtName);
@@ -726,7 +754,7 @@
         private FontAwesome.Sharp.IconButton BtnSearchProduct;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label LblSalePrice;
         private System.Windows.Forms.Label label18;
         private FontAwesome.Sharp.IconButton BtnAddInvoiceDetail;
         private FontAwesome.Sharp.IconButton BtnShowList;
@@ -735,7 +763,7 @@
         public System.Windows.Forms.TextBox TxtQuantity;
         public System.Windows.Forms.TextBox TxtName;
         public System.Windows.Forms.TextBox TxtWarehouseQuantity;
-        public System.Windows.Forms.TextBox TxtUnitValue;
+        public System.Windows.Forms.TextBox TxtSalePrice;
         public System.Windows.Forms.TextBox TxtIVA;
         public System.Windows.Forms.TextBox TxtDiscount;
         private System.Windows.Forms.Label label9;
@@ -749,5 +777,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private FontAwesome.Sharp.IconButton BtnCommitInvoice;
+        public System.Windows.Forms.TextBox TxtPurchasePrice;
+        private System.Windows.Forms.Label LblPurchasePrice;
     }
 }

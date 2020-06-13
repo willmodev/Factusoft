@@ -39,7 +39,8 @@ namespace PulsacionesGUI
 
             product.ID = TxtID.Text;
             product.Name = TxtName.Text;
-            product.UnitValue = decimal.Parse( TxtUnitValue.Text);
+            product.SalePrice = decimal.Parse( TxtSalePrice.Text);
+            product.PurchasePrice = decimal.Parse(TxtPurchacePrice.Text);
             product.UnitMeasure = CmbUnitMeasure.Text;
             product.Quantity = float.Parse(TxtQuantity.Text);
             product.IVA = decimal.Parse(TxtIVA.Text);
@@ -75,7 +76,8 @@ namespace PulsacionesGUI
                 (
                    product.ID,
                    product.Name,
-                   product.UnitValue.ToString(),
+                   product.SalePrice.ToString(),
+                   product.PurchasePrice.ToString(),
                    product.UnitMeasure,
                    product.Quantity.ToString(),
                    product.IVA.ToString()
@@ -101,11 +103,12 @@ namespace PulsacionesGUI
         }
 
 
-        private void FillTextBoxes(string id, string name, string unitValue, string unitMeasure, string quantity, string iva)
+        private void FillTextBoxes(string id, string name, string salePrice,string purchasePrice, string unitMeasure, string quantity, string iva)
         {
             TxtID.Text = id;
             TxtName.Text = name;
-            TxtUnitValue.Text = unitValue;
+            TxtSalePrice.Text = salePrice;
+            TxtPurchacePrice.Text = purchasePrice;
             CmbUnitMeasure.Text = unitMeasure;
             TxtQuantity.Text = quantity;
             TxtIVA.Text = iva;
@@ -115,7 +118,7 @@ namespace PulsacionesGUI
 
         private void EmptyTextBoxes()
         {
-            FillTextBoxes("","","","","","");
+            FillTextBoxes("","","","","","","");
         }
 
         private void DisplayButtons(bool remove, bool modify, bool save)
@@ -161,12 +164,11 @@ namespace PulsacionesGUI
 
         private void AlterModified()
         {
-            TxtID.Modified = false;
             TxtName.Modified = false;
-            TxtUnitValue.Modified = false;
+            TxtSalePrice.Modified = false;
             TxtQuantity.Modified = false;
             TxtIVA.Modified = false;
-
+            TxtPurchacePrice.Modified = false;
            
         }
 
@@ -204,10 +206,11 @@ namespace PulsacionesGUI
               
                 TxtID.Text = row.Cells[0].Value.ToString();
                 TxtName.Text = row.Cells[1].Value.ToString();
-                TxtUnitValue.Text = row.Cells[2].Value.ToString();
-                CmbUnitMeasure.Text = row.Cells[3].Value.ToString();
-                TxtQuantity.Text = row.Cells[4].Value.ToString();
-                TxtIVA.Text = row.Cells[5].Value.ToString();
+                TxtSalePrice.Text = row.Cells[2].Value.ToString();
+                TxtPurchacePrice.Text = row.Cells[3].Value.ToString();
+                CmbUnitMeasure.Text = row.Cells[4].Value.ToString();
+                TxtQuantity.Text = row.Cells[5].Value.ToString();
+                TxtIVA.Text = row.Cells[6].Value.ToString();
 
                 TxtID.ReadOnly = true;
                 AlterModified();

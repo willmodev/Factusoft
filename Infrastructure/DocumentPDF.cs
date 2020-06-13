@@ -30,7 +30,7 @@ namespace Infrastructure
             document.Add(new Paragraph($"Fecha Vencimiento: {invoice.DueData} \n"));
             document.Add(new Paragraph($"Cliente: {invoice.Client.FirstName} {invoice.Client.LastName} \n"));
             document.Add(new Paragraph($"Cedula: {invoice.Client.Cedula} \n\n\n"));
-            document.Add(FillTable(invoice.InvoiceDetails));
+            document.Add(FillTable(invoice.InvoiceDetails, invoice.InvoiceType));
             document.Add(new Paragraph("\n\n"));
             document.Add(new Paragraph($"Sub Total: {invoice.Subtotal.ToString("C")} \n"));
             document.Add(new Paragraph($"Total IVA: {invoice.TotalIva.ToString("C")} \n"));
@@ -41,7 +41,7 @@ namespace Infrastructure
             document.Close();
         }
 
-        private PdfPTable FillTable(IList<InvoiceDetail> invoiceDetails)
+        private PdfPTable FillTable(IList<InvoiceDetail> invoiceDetails, string invoiceType)
         {
             
             PdfPTable pdfPTable = new PdfPTable(7);
@@ -62,7 +62,7 @@ namespace Infrastructure
                 pdfPTable.AddCell(new Paragraph(item.Quantity.ToString()));
                 pdfPTable.AddCell(new Paragraph(item.Product.UnitMeasure.ToString()));
                 pdfPTable.AddCell(new Paragraph(item.Product.Name.ToString()));
-                pdfPTable.AddCell(new Paragraph(item.Product.UnitValue.ToString()));
+                pdfPTable.AddCell(new Paragraph((invoiceType == "Venta") ? item.Product.SalePrice.ToString(): item.Product.PurchasePrice.ToString()));
                 pdfPTable.AddCell(new Paragraph(item.Discount.ToString()));
                 pdfPTable.AddCell(new Paragraph(item.Product.IVA.ToString()));
                 pdfPTable.AddCell(new Paragraph(item.TolalDetail.ToString()));

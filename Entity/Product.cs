@@ -10,7 +10,8 @@ namespace Entity
     {
         public string ID { get; set; }
         public string Name { get; set; }
-        public decimal UnitValue { get; set; }
+        public decimal SalePrice { get; set; }
+        public decimal PurchasePrice { get; set; }
         public string UnitMeasure { get; set; }
         public float Quantity { get; set; }
         public decimal IVA { get; set; }

@@ -29,17 +29,16 @@ namespace PulsacionesGUI
         {
             InvoiceSearchAnswer answer = invoiceService.SearchInvoice(int.Parse(TxtNumberInvoice.Text));
             Invoice invoice = answer.Invoice;
+            invoices = new List<Invoice>();
+
             if (!answer.Error)
             {
-                DgvInvoiceDetail.DataSource = null;
-                DgvInvoice.Rows.Clear();
-
-                if (invoice != null)
+                if(invoice != null)
                 {
-                    DgvInvoice.Rows.Add(invoice.Invoice_ID, invoice.Client.Cedula, invoice.Client.FirstName,
-                                        invoice.Subtotal, invoice.TotalIva, invoice.Total);
+                    invoices.Add(invoice);
+                    FillInvoiceDetail();
                 }
-                DgvInvoice.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                    
             }
 
             MessageBox.Show(answer.Message);
@@ -48,28 +47,67 @@ namespace PulsacionesGUI
         private void BtnShowList_Click(object sender, EventArgs e)
         {
             InvoiceConsultAnswer answer = invoiceService.ConsultInvoices();
-            invoices = answer.Invoices;
-
-            
-            if (!answer.Error)
+            if(CmbTypeOfQuery.Text != "")
             {
-                DgvInvoiceDetail.DataSource = null;
-                DgvInvoice.Rows.Clear();
+                if (!answer.Error)
+                {
+                    if (CmbTypeOfQuery.Text == "Todo")
+                    {
+                        invoices = answer.Invoices;
+                        
+                    }
+                    else if (CmbTypeOfQuery.Text == "Compra")
+                    {
+                        invoices = invoiceService.FilerByType("Compra");
+                    }
+                    else
+                    {
+                        invoices = invoiceService.FilerByType("Venta");
+                    }
 
+                    FillInvoiceDetail();
+                    CalculateTotals();
+                    
+                }else
+                    MessageBox.Show(answer.Message);
+
+
+            }
+            else
+            {
+                MessageBox.Show("Primero debe seleccionar el tipo de busqueda!");
+                CmbTypeOfQuery.DroppedDown = true;
+            }
+           
+                     
+        }
+
+        private void FillInvoiceDetail()
+        {
+           
+            DgvInvoiceDetail.DataSource = null;
+            DgvInvoice.Rows.Clear();
+
+            if (invoices.Count != 0)
+            {
                 foreach (var item in invoices)
                 {
-                    DgvInvoice.Rows.Add(item.Invoice_ID, item.Client.Cedula, item.Client.FirstName,
+                    DgvInvoice.Rows.Add(item.Invoice_ID, item.InvoiceType, item.Client.Cedula, item.Client.FirstName,
                                         item.Subtotal, item.TotalIva, item.Total);
                 }
             }
+            else
+                MessageBox.Show("No se encontraron registros");
+               
+
             DgvInvoice.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
-            MessageBox.Show(answer.Message);
+
         }
 
         int RowIndex = 0;
-        private void DgvInvoiceDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvInvoice_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            RowIndex = (DgvInvoice.RowCount == 1) ? (int.Parse(TxtNumberInvoice.Text) - 1) : RowIndex = DgvInvoice.CurrentCell.RowIndex;
+            RowIndex = (DgvInvoice.RowCount == 1) ? 0 : DgvInvoice.CurrentCell.RowIndex;
 
             ExtractInvoiceDetail();
         }
@@ -84,12 +122,12 @@ namespace PulsacionesGUI
 
                 if (!answer.Error)
                 {
-                    FillTableInvoice(ApplyDTO(answer.invoiceDetails));
+                    FillTableInvoice(ApplyDTO(answer.invoiceDetails, invoice.InvoiceType));
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("No se encuentra ninguna factura aqui!");
+                MessageBox.Show($"No se encuentra ninguna factura aqui! {e.Message}");
             }
 
             
@@ -99,14 +137,17 @@ namespace PulsacionesGUI
 
         }
 
-        private IList<InvoiceDetailDTO> ApplyDTO(IList<InvoiceDetail> invoiceDetails)
+        private IList<InvoiceDetailDTO> ApplyDTO(IList<InvoiceDetail> invoiceDetails, string invoiceType)
         {
             IList<InvoiceDetailDTO> invoiceDetailDTOs = new List<InvoiceDetailDTO>();
+            decimal price; 
             foreach (var item in invoiceDetails)
             {
-                InvoiceDetailDTO invoiceDTO = invoiceService.MapInvoiceDetailDTO(item.Product, item.Quantity, item.Discount);
+               price = (invoiceType == "Venta") ? item.Product.SalePrice : item.Product.PurchasePrice;
 
-                invoiceDetailDTOs.Add(invoiceDTO);
+               InvoiceDetailDTO invoiceDTO = invoiceService.MapInvoiceDetailDTO(item.Product, item.Quantity, item.Discount, price);
+                
+               invoiceDetailDTOs.Add(invoiceDTO);
             }
 
             return invoiceDetailDTOs;
@@ -120,19 +161,15 @@ namespace PulsacionesGUI
             DgvInvoiceDetail.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
         }
 
-        //private void FillTotals(Invoice invoice)
-        //{
-        //    LblSubTotal.Text = $"{Decimal.Round(invoice.Subtotal, 1)} ";
-        //    LblIVA.Text = $"{Decimal.Round(invoice.TotalIva, 1)}";
-        //    LblTotalInvoice.Text = $"{Decimal.Round(invoice.Total, 1)}";
-        //}
 
-        //private void BtnShowList_Click(object sender, EventArgs e)
-        //{
+        public void CalculateTotals()
+        {
+            decimal sales = invoiceService.TotalByType("Venta");
+            decimal purchases =invoiceService.TotalByType("Compra");
 
-
-
-
-        //}
+            LblTotalPurchases.Text = $"{purchases.ToString("C")}";
+            LblSales.Text = $"{sales.ToString("C")}";
+        }
+      
     }
 }

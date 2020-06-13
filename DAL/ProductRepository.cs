@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Entity;
+using System.Data;
 namespace DAL
 {
     public class ProductRepository
@@ -23,19 +24,25 @@ namespace DAL
         {
             using (var command = sqlConnection.CreateCommand())
             {
-                command.CommandText = @"INSERT INTO Products (ID, Name, UnitValue, UnitMeasure, Quantity, IVA)
-                                                     VALUES (@ID, @Name, @UnitValue, @UnitMeasure, @Quantity, @IVA)";
-                command.Parameters.AddWithValue("@ID", product.ID);                  
-                command.Parameters.AddWithValue("@Name", product.Name);                  
-                command.Parameters.AddWithValue("@UnitValue", product.UnitValue);                  
-                command.Parameters.AddWithValue("@UnitMeasure", product.UnitMeasure);                  
-                command.Parameters.AddWithValue("@Quantity", product.Quantity);                  
-                command.Parameters.AddWithValue("@IVA", product.IVA);
+                command.CommandText = @"insertProducts";
+                ParametersProduct(product, command);
 
                 command.ExecuteNonQuery();
 
-               
+
             }
+        }
+
+        private static void ParametersProduct(Product product, SqlCommand command)
+        {
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@ID", product.ID);
+            command.Parameters.AddWithValue("@Name", product.Name);
+            command.Parameters.AddWithValue("@SalePrice", product.SalePrice);
+            command.Parameters.AddWithValue("@PurchasePrice", product.PurchasePrice);
+            command.Parameters.AddWithValue("@UnitMeasure", product.UnitMeasure);
+            command.Parameters.AddWithValue("@Quantity", product.Quantity);
+            command.Parameters.AddWithValue("@IVA", product.IVA);
         }
 
         public bool Remove(string ID)
@@ -78,10 +85,11 @@ namespace DAL
 
             product.ID = sqlDataReader.GetString(0);
             product.Name = sqlDataReader.GetString(1);
-            product.UnitValue = sqlDataReader.GetDecimal(2);
-            product.UnitMeasure = sqlDataReader.GetString(3);
-            product.Quantity = (float)sqlDataReader.GetDouble(4);
-            product.IVA = sqlDataReader.GetDecimal(5);
+            product.SalePrice = sqlDataReader.GetDecimal(2);
+            product.PurchasePrice = sqlDataReader.GetDecimal(3);
+            product.UnitMeasure = sqlDataReader.GetString(4);
+            product.Quantity = (float)sqlDataReader.GetDouble(5);
+            product.IVA = sqlDataReader.GetDecimal(6);
 
             return product;
         }
@@ -104,16 +112,8 @@ namespace DAL
         {
             using (var command = sqlConnection.CreateCommand())
             {
-                command.CommandText = "UPDATE Products SET ID = @ID, Name = @Name, UnitValue = @UnitValue," +
-                                                        " UnitMeasure = @UnitMeasure, Quantity = @Quantity, IVA = @IVA " +
-                                                        "WHERE ID = @ID ";
-                command.Parameters.AddWithValue("@ID", product.ID);
-                command.Parameters.AddWithValue("@Name", product.Name);
-                command.Parameters.AddWithValue("@UnitValue", product.UnitValue);
-                command.Parameters.AddWithValue("@UnitMeasure", product.UnitMeasure);
-                command.Parameters.AddWithValue("@Quantity", product.Quantity);
-                command.Parameters.AddWithValue("@IVA", product.IVA);
-
+                command.CommandText = "updateProduct";
+                ParametersProduct(product, command);
                 return command.ExecuteNonQuery() > 0;
             }
         }

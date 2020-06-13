@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.TxtUnitValue = new System.Windows.Forms.TextBox();
+            this.TxtSalePrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +52,8 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.label8 = new System.Windows.Forms.Label();
+            this.TxtPurchacePrice = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTableProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,20 +64,20 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label4.Location = new System.Drawing.Point(397, 88);
+            this.label4.Location = new System.Drawing.Point(416, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 55;
             this.label4.Text = "Cantidad";
             // 
-            // TxtUnitValue
+            // TxtSalePrice
             // 
-            this.TxtUnitValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtUnitValue.Location = new System.Drawing.Point(189, 175);
-            this.TxtUnitValue.Name = "TxtUnitValue";
-            this.TxtUnitValue.Size = new System.Drawing.Size(96, 20);
-            this.TxtUnitValue.TabIndex = 5;
-            this.TxtUnitValue.ModifiedChanged += new System.EventHandler(this.TxtBoxes_ModifiedChanged);
+            this.TxtSalePrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtSalePrice.Location = new System.Drawing.Point(290, 174);
+            this.TxtSalePrice.Name = "TxtSalePrice";
+            this.TxtSalePrice.Size = new System.Drawing.Size(96, 20);
+            this.TxtSalePrice.TabIndex = 6;
+            this.TxtSalePrice.ModifiedChanged += new System.EventHandler(this.TxtBoxes_ModifiedChanged);
             // 
             // label3
             // 
@@ -84,18 +86,18 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label3.Location = new System.Drawing.Point(186, 159);
+            this.label3.Location = new System.Drawing.Point(287, 158);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 56;
-            this.label3.Text = "Valor Unit.";
+            this.label3.Text = "Precio Venta";
             // 
             // TxtName
             // 
             this.TxtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtName.Location = new System.Drawing.Point(189, 104);
+            this.TxtName.Location = new System.Drawing.Point(173, 104);
             this.TxtName.Name = "TxtName";
-            this.TxtName.Size = new System.Drawing.Size(168, 20);
+            this.TxtName.Size = new System.Drawing.Size(169, 20);
             this.TxtName.TabIndex = 2;
             this.TxtName.ModifiedChanged += new System.EventHandler(this.TxtBoxes_ModifiedChanged);
             // 
@@ -106,7 +108,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label2.Location = new System.Drawing.Point(186, 88);
+            this.label2.Location = new System.Drawing.Point(170, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 57;
@@ -120,7 +122,6 @@
             this.TxtID.Size = new System.Drawing.Size(70, 20);
             this.TxtID.TabIndex = 1;
             this.TxtID.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TxtID_MouseClick);
-            this.TxtID.ModifiedChanged += new System.EventHandler(this.TxtBoxes_ModifiedChanged);
             // 
             // label1
             // 
@@ -153,7 +154,7 @@
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Rotation = 0D;
             this.BtnSave.Size = new System.Drawing.Size(70, 55);
-            this.BtnSave.TabIndex = 7;
+            this.BtnSave.TabIndex = 8;
             this.BtnSave.Text = "Guardar";
             this.BtnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnSave.UseVisualStyleBackColor = false;
@@ -162,7 +163,7 @@
             // TxtQuantity
             // 
             this.TxtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtQuantity.Location = new System.Drawing.Point(400, 104);
+            this.TxtQuantity.Location = new System.Drawing.Point(419, 104);
             this.TxtQuantity.Name = "TxtQuantity";
             this.TxtQuantity.Size = new System.Drawing.Size(70, 20);
             this.TxtQuantity.TabIndex = 3;
@@ -186,7 +187,7 @@
             this.BtnRemove.Name = "BtnRemove";
             this.BtnRemove.Rotation = 0D;
             this.BtnRemove.Size = new System.Drawing.Size(70, 55);
-            this.BtnRemove.TabIndex = 8;
+            this.BtnRemove.TabIndex = 9;
             this.BtnRemove.Text = "Eliminar";
             this.BtnRemove.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnRemove.UseVisualStyleBackColor = false;
@@ -211,7 +212,7 @@
             this.BtnModify.Name = "BtnModify";
             this.BtnModify.Rotation = 0D;
             this.BtnModify.Size = new System.Drawing.Size(70, 55);
-            this.BtnModify.TabIndex = 9;
+            this.BtnModify.TabIndex = 10;
             this.BtnModify.Text = "Editar";
             this.BtnModify.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnModify.UseVisualStyleBackColor = false;
@@ -224,7 +225,7 @@
             this.TxtSearch.Location = new System.Drawing.Point(566, 104);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(89, 20);
-            this.TxtSearch.TabIndex = 73;
+            this.TxtSearch.TabIndex = 12;
             this.TxtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TxtSearch_MouseClick);
             // 
             // label5
@@ -284,7 +285,7 @@
             this.BtnShowList.Name = "BtnShowList";
             this.BtnShowList.Rotation = 0D;
             this.BtnShowList.Size = new System.Drawing.Size(149, 42);
-            this.BtnShowList.TabIndex = 10;
+            this.BtnShowList.TabIndex = 11;
             this.BtnShowList.Text = "Ver / Ocultar Lista";
             this.BtnShowList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnShowList.UseVisualStyleBackColor = false;
@@ -293,10 +294,10 @@
             // TxtIVA
             // 
             this.TxtIVA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtIVA.Location = new System.Drawing.Point(400, 175);
+            this.TxtIVA.Location = new System.Drawing.Point(418, 175);
             this.TxtIVA.Name = "TxtIVA";
             this.TxtIVA.Size = new System.Drawing.Size(70, 20);
-            this.TxtIVA.TabIndex = 6;
+            this.TxtIVA.TabIndex = 7;
             this.TxtIVA.ModifiedChanged += new System.EventHandler(this.TxtBoxes_ModifiedChanged);
             // 
             // label6
@@ -306,7 +307,7 @@
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
-            this.label6.Location = new System.Drawing.Point(397, 158);
+            this.label6.Location = new System.Drawing.Point(415, 158);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(27, 13);
             this.label6.TabIndex = 90;
@@ -320,7 +321,7 @@
             "L"});
             this.CmbUnitMeasure.Location = new System.Drawing.Point(60, 174);
             this.CmbUnitMeasure.Name = "CmbUnitMeasure";
-            this.CmbUnitMeasure.Size = new System.Drawing.Size(96, 21);
+            this.CmbUnitMeasure.Size = new System.Drawing.Size(70, 21);
             this.CmbUnitMeasure.TabIndex = 4;
             this.CmbUnitMeasure.SelectedIndexChanged += new System.EventHandler(this.CmbUnitMeasure_SelectedIndexChanged);
             // 
@@ -333,9 +334,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
             this.label7.Location = new System.Drawing.Point(57, 158);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 93;
-            this.label7.Text = "Unidad Medida";
+            this.label7.Text = "Medida";
             // 
             // label13
             // 
@@ -398,12 +399,36 @@
             this.label8.TabIndex = 98;
             this.label8.Text = "Buscar Productos";
             // 
+            // TxtPurchacePrice
+            // 
+            this.TxtPurchacePrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtPurchacePrice.Location = new System.Drawing.Point(162, 175);
+            this.TxtPurchacePrice.Name = "TxtPurchacePrice";
+            this.TxtPurchacePrice.Size = new System.Drawing.Size(96, 20);
+            this.TxtPurchacePrice.TabIndex = 5;
+            this.TxtPurchacePrice.ModifiedChanged += new System.EventHandler(this.TxtBoxes_ModifiedChanged);
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(190)))), ((int)(((byte)(161)))));
+            this.label9.Location = new System.Drawing.Point(159, 158);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(89, 13);
+            this.label9.TabIndex = 100;
+            this.label9.Text = "Precio Compra";
+            // 
             // ProductosFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(860, 512);
+            this.Controls.Add(this.TxtPurchacePrice);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.DgvTableProducts);
             this.Controls.Add(this.label13);
@@ -420,7 +445,7 @@
             this.Controls.Add(this.TxtQuantity);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.TxtUnitValue);
+            this.Controls.Add(this.TxtSalePrice);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtName);
             this.Controls.Add(this.label2);
@@ -438,7 +463,7 @@
 
         #endregion
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TxtUnitValue;
+        private System.Windows.Forms.TextBox TxtSalePrice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.Label label2;
@@ -461,5 +486,7 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox TxtPurchacePrice;
+        private System.Windows.Forms.Label label9;
     }
 }
